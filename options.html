@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Options</title>
+        <link rel="stylesheet" href="css/options.css"/>
+        <style id="selectionPreview"></style>
+    </head>
+    <body>
+        <h1>Options</h1>
+        <hr />
+        
+        <h2>Selection Style</h2>
+        <b>Preview:</b><br />
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <input type="checkbox" id="selectionCheck"/>
+        <label for="selectionCheck" title="Set your own highlight colors for text selection">Use custom selection color</label>
+        <ul id="selectionOptions">
+            <li>
+                <label>Selection Text Color</label>
+                <input id="selectionColor" type="color" class="localSetting"/>
+            </li>
+            <li>
+                <label>Selection Background Color</label>
+                <input id="selectionBackground" type="color" class="localSetting"/>
+            </li>
+        </ul>
+        <h2>Filters</h2>
+        <p>Choose the filters that are shown in the context menu</p>
+        <ul id="filterList"></ul>
+        <script src="js/zepto.min.js"></script>
+        <script src="js/md5.js"></script>
+        <script src="js/sha1.js"></script>
+        <script src="js/sha256.js"></script>
+        <script src="js/sha512.js"></script>
+        <script src="js/vkbeautify.js"></script>
+        <script src="js/excellent.js"></script>
+        <script src="js/options.js"></script>
+    </body>
+</html>

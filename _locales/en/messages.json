@@ -1,0 +1,188 @@
+{
+    "extName": {
+        "message": "Excellent Selection",
+        "description" : "Name of extension"
+    },
+    "extDescription": {
+        "message": "Transform selected text using one of several built-in filters.",
+        "description" : "Description of extension"
+    },
+
+    "Lowercase": {
+        "message": "Lowercase",
+        "description" : "filter name"
+    },
+    "LowercaseDesc": {
+        "message": "Lowercase all characters in selection.",
+        "description" : "filter description"
+    },
+
+    "Uppercase": {
+        "message": "Uppercase",
+        "description" : "filter name"
+    },
+    "UppercaseDesc": {
+        "message": "Uppercase all characters in selection.",
+        "description" : "filter description"
+    },
+
+    "Length": {
+        "message": "Length",
+        "description" : "filter name"
+    },
+    "LengthDesc": {
+        "message": "Return number of characters in selection.",
+        "description" : "filter description"
+    },
+
+    "Shuffle": {
+        "message": "Shuffle",
+        "description" : "filter name"
+    },
+    "ShuffleDesc": {
+        "message": "Shuffles a string (Using the Fisher-Yates algorithm).",
+        "description" : "filter description"
+    },
+
+    "Reverse": {
+        "message": "Reverse",
+        "description" : "filter name"
+    },
+    "ReverseDesc": {
+        "message": "Reverse the order of characters in selection.",
+        "description" : "filter description"
+    },
+
+    "Replace": {
+        "message": "Search and Replace",
+        "description" : "filter name"
+    },
+    "ReplaceDesc": {
+        "message": "Search and replace a value in selection.",
+        "description" : "filter description"
+    },
+
+    "WordCount": {
+        "message": "Word Count",
+        "description" : "filter name"
+    },
+    "WordCountDesc": {
+        "message": "Return the number of words in selection.",
+        "description" : "filter description"
+    },
+
+    "WordWrap": {
+        "message": "Word Wrap",
+        "description" : "filter name"
+    },
+    "WordWrapDesc": {
+        "message": "Wrap the selction to a given length.",
+        "description" : "filter description"
+    },
+
+    "Base64Encode": {
+        "message": "Base64 Encode",
+        "description" : "filter name"
+    },
+    "Base64EncodeDesc": {
+        "message": "Base64 encode the entire selection.",
+        "description" : "filter description"
+    },
+
+    "Base64Decode": {
+        "message": "Base64 Decode",
+        "description" : "filter name"
+    },
+    "Base64DecodeDesc": {
+        "message": "Base64 decode the entire selection.",
+        "description" : "filter description"
+    },
+
+    "URLEncode": {
+        "message": "URL Encode",
+        "description" : "filter name"
+    },
+    "URLEncodeDesc": {
+        "message": "URL encode the entire selection.",
+        "description" : "filter description"
+    },
+
+    "StripTags": {
+        "message": "Strip Tags",
+        "description" : "filter name"
+    },
+    "StripTagsDesc": {
+        "message": "Strip HTML tags from selection.",
+        "description" : "filter description"
+    },
+
+    "RemoveWhitespace": {
+        "message": "Remove Whitespace",
+        "description" : "filter name"
+    },
+    "RemoveWhitespaceDesc": {
+        "message": "Remove spaces from selection.",
+        "description" : "filter description"
+    },
+
+    "FormatXML": {
+        "message": "Format XML",
+        "description" : "filter name"
+    },
+    "FormatXMLDesc": {
+        "message": "Pretty print XML.",
+        "description" : "filter description"
+    },
+
+    "FormatJSON": {
+        "message": "Format JSON",
+        "description" : "filter name"
+    },
+    "FormatJSONDesc": {
+        "message": "Pretty print JSON.",
+        "description" : "filter description"
+    },
+
+    "FormatCSS": {
+        "message": "Format CSS",
+        "description" : "filter name"
+    },
+    "FormatCSSDesc": {
+        "message": "Pretty print CSS.",
+        "description" : "filter description"
+    },
+
+    "FormatSQL": {
+        "message": "Format SQL",
+        "description" : "filter name"
+    },
+    "FormatSQLDesc": {
+        "message": "Pretty print SQL.",
+        "description" : "filter description"
+    },
+
+    "MD5Desc": {
+        "message": "Return MD5 hash of selection.",
+        "description" : "filter description"
+    },
+
+    "SHA1Desc": {
+        "message": "Return SHA1 hash of selection.",
+        "description" : "filter description"
+    },
+
+    "SHA256Desc": {
+        "message": "Return SHA256 hash of selection.",
+        "description" : "filter description"
+    },
+
+    "SHA512Desc": {
+        "message": "Return SHA512 hash of selection.",
+        "description" : "filter description"
+    },
+
+    "PigLatinDesc": {
+        "message": "Translates text to pig latin.",
+        "description" : "filter description"
+    }
+}

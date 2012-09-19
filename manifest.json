@@ -1,0 +1,32 @@
+{
+	"name": "__MSG_extName__",
+	"version": "1.0",
+    "manifest_version": 2,
+	"description": "__MSG_extDescription__",
+    "homepage_url": "http://litegem.com/crx",
+    "default_locale": "en",
+    "version": "1",
+    "manifest_version": 2,
+    "icons": { "16": "img/16.png",
+               "48": "img/48.png",
+              "128": "img/128.png" },
+    "options_page": "options.html",
+    "background": {
+        "page": "background.html"
+    },
+    "permissions" : [
+        "clipboardWrite",
+        "contextMenus",
+        "notifications",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "optional_permissions": [
+        "tabs",
+        "clipboardWrite"
+    ],
+    "content_scripts": [{
+        "matches": ["http://*/*", "https://*/*"],
+        "js": ["js/zepto.min.js", "js/selection.js"]
+    }]
+}

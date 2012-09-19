@@ -1,0 +1,5 @@
+Finish localizing all user facing strings
+Move all CSS into stylesheets
+Implement Clipboard Access
+Implement Encryption filters
+Implement User Filters and Filter editor
