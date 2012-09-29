@@ -3,7 +3,7 @@
 	"version": "1.0",
     "manifest_version": 2,
 	"description": "__MSG_extDescription__",
-    "homepage_url": "http://litegem.com/crx",
+    "homepage_url": "https://github.com/TravisPaul/crx-excellent-selection",
     "default_locale": "en",
     "version": "1",
     "manifest_version": 2,
@@ -23,7 +23,8 @@
     ],
     "optional_permissions": [
         "tabs",
-        "clipboardWrite"
+        "clipboardWrite",
+        "unlimitedStorage"
     ],
     "content_scripts": [{
         "matches": ["http://*/*", "https://*/*"],
