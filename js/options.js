@@ -8,7 +8,8 @@ $(function(){
         visibleFilters = exsel.getFilters(),
         $selectionCheck = $('#selectionCheck'),
         $selectionOptions = $('#selectionOptions'),
-        $selectionPreview = $('#selectionPreview');
+        $selectionPreview = $('#selectionPreview'),
+        $custom = $('#custom');
 
     function updateSelectionPreview() {
         selectionStyle = exsel.getSelectionStyle();
@@ -22,18 +23,12 @@ $(function(){
 
     // get values from local storage
     $localSetting.each(function(){
-        var
-            $this = $(this),
-            id = $this.attr('id');
-        $this.val(localStorage.getItem(id));
+        this.value = localStorage.getItem(this.id);
     });
 
     // set a value when it chnages
     $localSetting.change(function(){
-        var
-            $this = $(this),
-            id = $this.attr('id');
-        localStorage.setItem(id, $this.val());
+        localStorage.setItem(this.id, this.value);
         updateSelectionPreview();
     });
 
@@ -54,7 +49,7 @@ $(function(){
     // anytime a single value is changed, the entire array is saved
     $filters.change(function(){
 
-        var $this = $(this), filterArray = [];
+        var filterArray = [];
 
         $filters.each(function(){
             if(this.checked) {
@@ -82,5 +77,11 @@ $(function(){
         $selectionCheck[0].checked = true;
         $selectionOptions.show();
     }
+
+    $custom.val(localStorage.getItem('customPreviewText') || '');
+
+    $custom.blur(function(){
+        localStorage.setItem('customPreviewText', this.value);
+    });
 
 });
