@@ -5,7 +5,6 @@
 	"description": "__MSG_extDescription__",
     "homepage_url": "https://github.com/TravisPaul/crx-excellent-selection",
     "default_locale": "en",
-    "version": "1",
     "manifest_version": 2,
     "icons": { "16": "img/16.png",
                "48": "img/48.png",
@@ -18,12 +17,6 @@
         "clipboardWrite",
         "contextMenus",
         "notifications",
-        "http://*/*",
-        "https://*/*"
-    ],
-    "optional_permissions": [
-        "tabs",
-        "clipboardWrite",
         "unlimitedStorage"
     ],
     "content_scripts": [{
