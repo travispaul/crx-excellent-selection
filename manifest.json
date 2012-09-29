@@ -1,8 +1,8 @@
 {
-	"name": "__MSG_extName__",
-	"version": "1.0",
+    "name": "__MSG_extName__",
+    "version": "1.0",
     "manifest_version": 2,
-	"description": "__MSG_extDescription__",
+    "description": "__MSG_extDescription__",
     "homepage_url": "https://github.com/TravisPaul/crx-excellent-selection",
     "default_locale": "en",
     "manifest_version": 2,
