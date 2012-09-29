@@ -1,40 +1,37 @@
 <!doctype html>
 <html>
     <head>
-        <title>Options</title>
+        <title data-i18n-text="Options"></title>
         <link rel="stylesheet" href="css/options.css"/>
         <style id="selectionPreview"></style>
     </head>
     <body>
         <div class="options">
-            <h2>Options</h2>
+            <h2 data-i18n-text="Options"></h2>
             <input type="checkbox" id="selectionCheck"/>
-            <label for="selectionCheck" title="Set your own highlight colors for text selection">Use custom selection color</label>
+            <label for="selectionCheck" data-i18n-title="SelectionTextColorTitle" data-i18n-text="SelectionTextColorDesc"></label>
             <ul id="selectionOptions">
                 <li>
-                    <label>Selection Text Color</label>
+                    <label data-i18n-text="SelectionTextColor"></label>
                     <input id="selectionColor" type="color" class="localSetting"/>
                 </li>
                 <li>
-                    <label>Selection Background Color</label>
+                    <label data-i18n-text="SelectionBackgroundColor"></label>
                     <input id="selectionBackground" type="color" class="localSetting"/>
                 </li>
             </ul>
-            <h2>Filters</h2>
-            <p>Choose the filters that are shown in the context menu</p>
+            <h2 data-i18n-text="Filters"></h2>
+            <p data-i18n-text="FiltersDesc"></p>
             <ul id="filterList"></ul>
         </div>
-
-
-
         <div class="preview">
-            <h2>Preview</h2>
+            <h2 data-i18n-text="Preview"></h2>
             
             <div class="tabs">
 
                 <div class="tab">
                     <input type="radio" id="tab-1" name="tab-group-1" checked>
-                    <label for="tab-1">Custom</label>
+                    <label for="tab-1" data-i18n-text="Custom"></label>
                     <div class="content">
                         <textarea id="custom" placeholder="Put your text in here..."></textarea>
                     </div>
@@ -42,7 +39,7 @@
 
                 <div class="tab">
                     <input type="radio" id="tab-2" name="tab-group-1">
-                    <label for="tab-2">Text</label>
+                    <label for="tab-2" data-i18n-text="Text"></label>
                     <div class="content">
 
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor

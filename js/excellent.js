@@ -42,7 +42,7 @@
             };
         },
 
-        // the selection has been filters and is now processed
+        // the selection has been filtered and is now processed
         returnSelection: function (original, modified, filter, url) {
             if (exsel.runAsExtension) {
                 chrome.extension.sendMessage({
@@ -324,5 +324,6 @@
     };
 
     window.exsel = exsel;
+    window.i18n = i18n;
 
 }(window));

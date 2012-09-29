@@ -3,9 +3,60 @@
         "message": "Excellent Selection",
         "description" : "Name of extension"
     },
+
     "extDescription": {
         "message": "Transform selected text using one of several built-in filters.",
         "description" : "Description of extension"
+    },
+
+    "Options": {
+        "message": "Options",
+        "description" : "Extension Options."
+    },
+
+    "Preview": {
+        "message": "Preview",
+        "description" : "Extension Preview."
+    },
+
+    "Custom": {
+        "message": "Custom",
+        "description" : "Tab title for custom text."
+    },
+
+    "Text": {
+        "message": "Text",
+        "description" : "Tab title for text."
+    },
+
+    "SelectionTextColor": {
+        "message": "Selection Text Color",
+        "description" : "Color of highlighted text."
+    },
+
+    "SelectionBackgroundColor": {
+        "message": "Selection Background Color",
+        "description" : "Background color of highlighted text."
+    },
+    
+    "SelectionTextColorTitle": {
+        "message": "Set your own highlight colors for text selection.",
+        "description" : "Title attribute on Selection Text Color option."
+    },
+
+    "SelectionTextColorDesc": {
+        "message": "Use custom selection color.",
+        "description" : "Description next to checkbox."
+    },
+
+    "Filters": {
+        "message": "Filters",
+        "description" : "Text modification functions."
+    },
+
+    "FiltersDesc": {
+        "message": "Choose the filters you would like to see in the context menu.",
+        "description" : "Text underneath Filters heading"
     },
 
     "Lowercase": {

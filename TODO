@@ -1,5 +1,6 @@
-Finish localizing all user facing strings
-Move all CSS into stylesheets
-Implement Clipboard Access
-Implement Encryption filters
-Implement User Filters and Filter editor
+1) Style Options Page
+2) Validate Markup and JSLint all scripts
+3) Release Version 1.0
+4) Implement Clipboard Access
+5) Implement Encryption filters
+6) Implement User Filters and Filter editor

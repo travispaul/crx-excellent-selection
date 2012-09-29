@@ -84,4 +84,12 @@ $(function(){
         localStorage.setItem('customPreviewText', this.value);
     });
 
+    $('[data-i18n-text]').each(function(){
+        this.textContent = i18n(this.dataset.i18nText);
+    });
+
+    $('[data-i18n-title]').each(function(){
+        this.title = i18n(this.dataset.i18nTitle);
+    });
+
 });
