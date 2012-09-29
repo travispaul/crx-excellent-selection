@@ -18,7 +18,8 @@ $(function(){
                 'CryptoJS',
                 'chrome',
                 'webkitNotifications',
-                'prompt']
+                'prompt',
+                'vkbeautify']
         };
 
     $.each(scripts, function(index){

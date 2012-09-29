@@ -145,21 +145,21 @@
                 name: i18n('WordWrap'),
                 desc: i18n('WordWrapDesc'),
                 exec: function (txt) {
-                    function wordwrap (str, width, brk, cut) {
+                    function wordwrap(str, widthNum, breakChar, cutOpt) {
                         var
-                            brk = brk || '\n',
-                            width = width || 75,
-                            cut = cut || false,
+                            brk = breakChar || '\n',
+                            width = widthNum || 75,
+                            cut = cutOpt || false,
                             regex;
 
                         if (!str) {
                             return str;
                         }
 
-                        regex = '.{1,' +width+ '}(\\s|$)' + (cut ? '|.{' +
-                                width+ '}|.+$' : '|\\S+?(\\s|$)');
+                        regex = '.{1,' + width + '}(\\s|$)' + (cut ? '|.{' +
+                                width + '}|.+$' : '|\\S+?(\\s|$)');
 
-                        return str.match( RegExp(regex, 'g') ).join( brk );
+                        return str.match(new RegExp(regex, 'g')).join(brk);
                     }
 
                     return exsel.returnSelection(txt.selectionText,
