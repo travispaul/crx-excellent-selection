@@ -29,6 +29,11 @@
         "description" : "Tab title for text."
     },
 
+    "SelectionColor": {
+        "message": "Selection Color",
+        "description" : "Color of highlighted text."
+    },
+
     "SelectionTextColor": {
         "message": "Selection Text Color",
         "description" : "Color of highlighted text."
@@ -48,6 +53,32 @@
         "message": "Use custom selection color.",
         "description" : "Description next to checkbox."
     },
+
+
+
+    "NotificationTitle": {
+        "message": "Show filtered output in a desktop notification.",
+        "description" : "Use notifications for filtered text."
+    },
+
+    "NotificationDesc": {
+        "message": "Display output in a desktop notification.",
+        "description" : "Use Notifications for output."
+    },
+
+    "TabsTitle": {
+        "message": "Show filtered output in a new tab.",
+        "description" : "Show filtered output in a new tab."
+    },
+
+    "TabsDesc": {
+        "message": "Display output in a new tab.",
+        "description" : "Display output in a new tab."
+    },
+
+
+
+
 
     "Filters": {
         "message": "Filters",

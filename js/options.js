@@ -1,4 +1,7 @@
-$(function(){
+$(function() {
+
+    'use strict';
+
     var
         $localSetting = $('.localSetting'),
         $filterList = $('#filterList'),
@@ -9,7 +12,11 @@ $(function(){
         $selectionCheck = $('#selectionCheck'),
         $selectionOptions = $('#selectionOptions'),
         $selectionPreview = $('#selectionPreview'),
-        $custom = $('#custom');
+        $custom = $('#custom'),
+        $i18nText = $('[data-i18n-text]'),
+        $i18nTitle = $('[data-i18n-title]'),
+        $outputMethod = $('.outputMethod'),
+        outputMethods = exsel.getOutputMethod();
 
     function updateSelectionPreview() {
         selectionStyle = exsel.getSelectionStyle();
@@ -39,8 +46,11 @@ $(function(){
         }
 
         $filterList.append(
-        '<li>'+
-            '<input type="checkbox" id="'+currentFilter+'" class="filter" '+checked+'/><label for="'+currentFilter+'" title="'+exsel.filters[currentFilter].desc+'">'+exsel.filters[currentFilter].name+'</label>' +
+        '<li>' +
+            '<input type="checkbox" id="'+currentFilter+'" class="filter" '+checked+'/>' +
+            '<label for="'+currentFilter+'" title="'+exsel.filters[currentFilter].desc+'">' +
+                exsel.filters[currentFilter].name +
+            '</label>' +
         '</li>');
     }
 
@@ -84,12 +94,21 @@ $(function(){
         localStorage.setItem('customPreviewText', this.value);
     });
 
-    $('[data-i18n-text]').each(function(){
+    $i18nText.each(function(){
         this.textContent = i18n(this.dataset.i18nText);
     });
 
-    $('[data-i18n-title]').each(function(){
+    $i18nTitle.each(function(){
         this.title = i18n(this.dataset.i18nTitle);
     });
 
+    $.each(outputMethods, function(i){
+        if(outputMethods[i] === 'on') {
+            $('#' + i).attr('checked', true);
+        }
+    });
+
+    $outputMethod.change(function() {
+        localStorage.setItem(this.id, this.checked ? 'on' : 'off');
+    });
 });

@@ -9,16 +9,28 @@
     <body>
         <div class="options">
             <h2 data-i18n-text="Options"></h2>
-            <input type="checkbox" id="selectionCheck"/>
-            <label for="selectionCheck" data-i18n-title="SelectionTextColorTitle" data-i18n-text="SelectionTextColorDesc"></label>
-            <ul id="selectionOptions">
+            <ul>
                 <li>
-                    <label data-i18n-text="SelectionTextColor"></label>
-                    <input id="selectionColor" type="color" class="localSetting"/>
+                    <input type="checkbox" id="useNotifications" class="outputMethod"/>
+                    <label for="useNotifications" data-i18n-title="NotificationTitle" data-i18n-text="NotificationDesc"></label>
                 </li>
                 <li>
-                    <label data-i18n-text="SelectionBackgroundColor"></label>
-                    <input id="selectionBackground" type="color" class="localSetting"/>
+                    <input type="checkbox" id="useTabs" class="outputMethod"/>
+                    <label for="useTabs" data-i18n-title="TabsTitle" data-i18n-text="TabsDesc"></label>
+                </li>
+                <li>
+                    <input type="checkbox" id="selectionCheck"/>
+                    <label for="selectionCheck" data-i18n-title="SelectionTextColorTitle" data-i18n-text="SelectionTextColorDesc"></label>
+                    <ul id="selectionOptions">
+                        <li>
+                            <label data-i18n-text="SelectionTextColor"></label>
+                            <input id="selectionColor" type="color" class="localSetting"/>
+                        </li>
+                        <li>
+                            <label data-i18n-text="SelectionBackgroundColor"></label>
+                            <input id="selectionBackground" type="color" class="localSetting"/>
+                        </li>
+                    </ul>
                 </li>
             </ul>
             <h2 data-i18n-text="Filters"></h2>
@@ -33,8 +45,8 @@
                 <div class="tab">
                     <input type="radio" id="tab-1" name="tab-group-1" checked>
                     <label for="tab-1" data-i18n-text="Custom"></label>
-                    <div class="content">
-                        <textarea id="custom" placeholder="Put your text in here..."></textarea>
+                    <div class="content" id="custom-text">
+                        <textarea id="custom" placeholder="Put your own text here..."></textarea>
                     </div>
                 </div>
 
@@ -60,6 +72,12 @@
                         exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
                         Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae
                         consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+
+                        <p>LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT
+                        UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO
+                        LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT. DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN
+                        VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR. EXCEPTEUR SINT OCCAECAT CUPIDATAT
+                        NON PROIDENT, SUNT IN CULPA QUI OFFICIA DESERUNT MOLLIT ANIM ID EST LABORUM.</p>
                     </div>
                 </div>
 
@@ -68,16 +86,28 @@
                     <label for="tab-3">XML</label>
 
                     <div class="content">
-                        <pre>
-&lt;?xml version=&quot;1.0&quot;?&gt;
-&lt;catalog&gt;&lt;book id=&quot;bk101&quot;&gt;
-&lt;author&gt;Gambardella, Matthew&lt;/author&gt;
-&lt;title&gt;XML Developer's Guide&lt;/title&gt;&lt;genre&gt;Computer&lt;/genre&gt;
-&lt;price&gt;44.95&lt;/price&gt;&lt;publish_date&gt;2000-10-01&lt;/publish_date&gt;
-&lt;description&gt;An in-depth look at creating applications
-with XML.&lt;/description&gt;
-&lt;/book&gt;&lt;/catalog&gt;
-                        </pre>
+<pre>&lt;class name=&quot;Button&quot;
+c:symbol-prefix=&quot;button&quot; c:type=&quot;GtkButton&quot;
+parent=&quot;Bin&quot; glib:type-name=&quot;GtkButton&quot;
+glib:get-type=&quot;gtk_button_get_type&quot; glib:type-struct=&quot;ButtonClass&quot;&gt;
+&lt;implements name=&quot;Atk.ImplementorIface&quot;/&gt;
+&lt;implements name=&quot;Actionable&quot;/&gt;&lt;implements name=&quot;Activatable&quot;/&gt;
+&lt;implements name=&quot;Buildable&quot;/&gt;
+&lt;constructor name=&quot;new&quot; c:identifier=&quot;gtk_button_new&quot;&gt;
+&lt;return-value transfer-ownership=&quot;none&quot;&gt;
+&lt;type name=&quot;Widget&quot; c:type=&quot;GtkWidget*&quot;/&gt;&lt;/return-value&gt;
+&lt;/constructor&gt;&lt;method name=&quot;get_label&quot; c:identifier=&quot;gtk_button_get_label&quot;&gt;
+&lt;return-value transfer-ownership=&quot;none&quot;&gt;
+&lt;type name=&quot;utf8&quot; c:type=&quot;gchar*&quot;/&gt;&lt;/return-value&gt;
+&lt;/method&gt;&lt;method name=&quot;set_label&quot; c:identifier=&quot;gtk_button_set_label&quot;&gt;
+&lt;return-value transfer-ownership=&quot;none&quot;&gt;
+&lt;type name=&quot;none&quot; c:type=&quot;void&quot;/&gt;
+&lt;/return-value&gt;&lt;parameters&gt;
+&lt;parameter name=&quot;label&quot; transfer-ownership=&quot;none&quot;&gt;
+&lt;type name=&quot;utf8&quot; c:type=&quot;gchar*&quot;/&gt;
+&lt;/parameter&gt;&lt;/parameters&gt;&lt;/method&gt;
+&lt;property name=&quot;label&quot; construct=&quot;1&quot;
+transfer-ownership=&quot;none&quot;&gt;&lt;type name=&quot;utf8&quot;/&gt;&lt;/property&gt;&lt;/class&gt;</pre>
                     </div>
                 </div>
                 
@@ -86,7 +116,28 @@ with XML.&lt;/description&gt;
                     <label for="tab-4">JSON</label>
 
                     <div class="content">
-                        <pre>{"thing":{ "isTrue" : false, "isFalse":true }, "otherThing": 1}</pre>
+<pre>{&quot;results&quot;:{&quot;opensearch:Query&quot;:{&quot;#text&quot;:&quot;&quot;,
+&quot;role&quot;:&quot;request&quot;,&quot;searchTerms&quot;:&quot;The Brass Rail&quot;,
+&quot;startPage&quot;:&quot;1&quot;},&quot;opensearch:totalResults&quot;:&quot;3&quot;,
+&quot;opensearch:startIndex&quot;:&quot;0&quot;,
+&quot;opensearch:itemsPerPage&quot;:&quot;1&quot;,
+&quot;venuematches&quot;:{&quot;venue&quot;:{&quot;id&quot;:&quot;8791498&quot;,
+&quot;name&quot;:&quot;The Brass Rail&quot;,&quot;location&quot;:
+{&quot;geo:point&quot;:{&quot;geo:lat&quot;:&quot;41.07407&quot;,
+&quot;geo:long&quot;:&quot;-85.14783&quot;},&quot;city&quot;:&quot;Fort Wayne&quot;,
+&quot;country&quot;:&quot;United States&quot;,&quot;street&quot;:&quot;1121 Broadway Ave.&quot;,
+&quot;postalcode&quot;:&quot;46802&quot;},&quot;url&quot;
+:&quot;http:\/\/www.last.fm\/venue\/8791498+The+Brass+Rail&quot;,&quot;website&quot;:&quot;&quot;,
+&quot;phonenumber&quot;:&quot;(260) 422-0881&quot;,&quot;image&quot;:
+[{&quot;#text&quot;:&quot;http:\/\/userserve-ak.last.fm\/serve\/34\/52645359.jpg&quot;,
+&quot;size&quot;:&quot;small&quot;},{&quot;#text&quot;:
+&quot;http:\/\/userserve-ak.last.fm\/serve\/64\/52645359.jpg&quot;,&quot;size&quot;:&quot;medium&quot;},
+{&quot;#text&quot;:&quot;http:\/\/userserve-ak.last.fm\/serve\/126\/52645359.jpg&quot;,
+&quot;size&quot;:&quot;large&quot;},{&quot;#text&quot;:
+&quot;http:\/\/userserve-ak.last.fm\/serve\/252\/52645359.jpg&quot;,
+&quot;size&quot;:&quot;extralarge&quot;},{&quot;#text&quot;:
+&quot;http:\/\/userserve-ak.last.fm\/serve\/_\/52645359\/The+Brass+Rail+Brass+Rail.jpg&quot;,
+&quot;size&quot;:&quot;mega&quot;}]}},&quot;@attr&quot;:{&quot;for&quot;:&quot;The Brass Rail&quot;}}}</pre>
                     </div>
                 </div>
 
@@ -95,7 +146,28 @@ with XML.&lt;/description&gt;
                     <label for="tab-5">CSS</label>
 
                     <div class="content">
-                        <pre>#thing{background:red;color:white;}.other{margin:2px;}</pre>
+<pre>/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+/* This file holds CSS that should be shared, in theory, by all user-visible
+ * chrome:// pages. */
+@import url("chrome://resources/css/widgets.css");
+/* Prevent CSS from overriding the hidden property. */
+[hidden]{display: none !important;}
+html.loading * {-webkit-transition-delay: 0 !important;
+-webkit-transition-duration: 0 !important;}
+body{cursor:default;margin:0;}p{line-height:1.8em;}
+h1,h2,h3{-webkit-user-select:none;font-weight:normal;line-height: 1;}
+h1{font-size: 1.5em;}h2{font-size:1.3em;margin-bottom:0.4em;}
+h3{color:black;font-size:1.2em;margin-bottom:0.8em;}
+a {color: rgb(17, 85, 204);text-decoration: underline;}
+a:active {color: rgb(5, 37, 119);}
+/* Elements that need to be LTR even in an RTL context, but should align
+ * right. (Namely, URLs, search engine names, etc.)
+ */
+html[dir='rtl'] .weakrtl {direction: ltr;text-align: right;}
+html[dir='rtl'] div.weakrtl input {direction: ltr;text-align: right;}
+html[dir='rtl'] .favicon-cell.weakrtl{-webkit-padding-end:22px;-webkit-padding-start:0;}</pre>
                     </div>
                 </div>
 

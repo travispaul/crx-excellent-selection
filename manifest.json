@@ -17,7 +17,9 @@
         "clipboardWrite",
         "contextMenus",
         "notifications",
-        "unlimitedStorage"
+        "unlimitedStorage",
+        "http://*/*",
+        "https://*/*"
     ],
     "content_scripts": [{
         "matches": ["http://*/*", "https://*/*"],

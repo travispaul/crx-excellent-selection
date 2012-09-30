@@ -1,5 +1,7 @@
 $(function(){
 
+    'use strict';
+
     // get selection style from background script
     chrome.extension.sendMessage({ get: 'getSelectionStyle' }, function(r){
         

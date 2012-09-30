@@ -9,14 +9,15 @@
 
     var exsel = {
 
-        // set to false for unit tests
+        // Set to false for unit tests
         runAsExtension : true,
 
-        // options that persists in local storage
+        // Defaults for options that persists in local storage
         options: {
             selectionColor: null,
             selectionBackground: null,
-            desktopNotification: true,
+            useNotifications: 'on',
+            useTabs: 'off',
             clipboardWrite: false,
             visibleFilters: ['LowerCase', 'UpperCase', 'Length', 'Shuffle',
                 'Reverse', 'Replace', 'WordCount', 'WordWrap', 'Base64Encode',
@@ -25,14 +26,14 @@
                 'FormatCSS', 'FormatSQL']
         },
 
-        // get list of active filters
+        // Get list of active filters
         getFilters: function () {
             var filters = localStorage.getItem('visibleFilters');
             return filters ? JSON.parse(filters) : exsel.options.visibleFilters;
         },
 
-        // get selection style
-        // example result: { color: '#000000', background: '#eeeeee' }
+        // Get selection style
+        // Example result: { color: '#000000', background: '#eeeeee' }
         getSelectionStyle: function () {
             return {
                 color: localStorage.getItem('selectionColor')
@@ -42,7 +43,18 @@
             };
         },
 
-        // the selection has been filtered and is now processed
+        // Get Output method
+        // Example result: { useNotifications: true, useTabs: false }
+        getOutputMethod: function () {
+            return {
+                useNotifications: localStorage.getItem('useNotifications')
+                    || exsel.options.useNotifications,
+                useTabs: localStorage.getItem('useTabs')
+                    || exsel.options.useTabs
+            };
+        },
+
+        // The selection has been filtered and is now processed
         returnSelection: function (original, modified, filter, url) {
             if (exsel.runAsExtension) {
                 chrome.extension.sendMessage({
@@ -302,7 +314,7 @@
             }
         },
 
-        // initialze context menus
+        // Initialze context menus
         createCtxMenus: function () {
             var
                 visibleFilters = exsel.getFilters(),

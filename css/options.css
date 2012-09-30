@@ -11,20 +11,24 @@ textarea{
 
 label[for] {
     -webkit-user-select: none;
+    cursor: pointer;
 }
 
+label{
+    margin-left: 5px;
+}
+
+ul{
+    list-style: none;
+    padding-left: 20px;
+}
+
+#custom-text{
+    overflow: hidden;
+}
 pre{
-    background:#666;
-    color:#fff;
-    padding-top:15px;
-    padding-bottom:15px;
-    padding-left:5px;
-    padding-right:5px;
-    border-radius:8px;
-}
-
-pre:hover{
-    background:#555;
+    font-family: courier, serif;
+    padding:12px;
 }
 
 .options{
@@ -39,6 +43,13 @@ pre:hover{
     width:60%;
 }
 
+h2{
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2px;
+    font-size: 18px;
+    font-weight: normal;
+    -webkit-user-select: none;
+}
 
 /*
 * Thanks Chris Coyier! You Rock!
@@ -47,7 +58,7 @@ pre:hover{
 
 .tabs {
     position: relative;
-    min-height: 500px; /* This part sucks */
+    min-height: 500px;
     clear: both;
     margin: 25px 0;
 }
@@ -55,17 +66,22 @@ pre:hover{
     float: left;
 }
 .tab label {
-    background: #eee;
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     margin-left: -1px;
     position: relative;
     left: 1px;
-    border-top-right-radius: 8px;
-    border-top-left-radius: 8px;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
     cursor:pointer;
     -webkit-user-select: none;
 }
+
+.tab label:hover{
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(237,237,237,1) 100%);
+}
+
 .tab [type=radio] {
     display: none;
 }
@@ -77,9 +93,12 @@ pre:hover{
     right: 0;
     bottom: 0;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border: 1px solid #ddd;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+    overflow: auto;
+    font-size:12px;
 }
 [type=radio]:checked ~ label {
     background: white;
@@ -88,4 +107,56 @@ pre:hover{
 }
 [type=radio]:checked ~ label ~ .content {
     z-index: 1;
+}
+
+
+/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+/* This file defines styles for form controls. The order of rule blocks is
+ * important as there are some rules with equal specificity that rely on order
+ * as a tiebreaker. These are marked with OVERRIDE.
+ */
+
+/* Default state **************************************************************/
+
+:-webkit-any(button,
+             input[type='button'],
+             input[type='submit']):not(.custom-appearance):not(.link-button),
+select,
+input[type='checkbox'],
+input[type='radio'] {
+  -webkit-appearance: none;
+  -webkit-user-select: none;
+  background-image: -webkit-linear-gradient(#ededed, #ededed 38%, #dedede);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08),
+      inset 0 1px 2px rgba(255, 255, 255, 0.75);
+  color: #444;
+  font: inherit;
+  margin: 0 1px 0 0;
+  text-shadow: 0 1px 0 rgb(240, 240, 240);
+}
+
+input[type='checkbox'] {
+  bottom: 2px;
+  height: 13px;
+  position: relative;
+  vertical-align: middle;
+  width: 13px;
+}
+
+/* Checked ********************************************************************/
+
+input[type='checkbox']:checked::before {
+  -webkit-user-select: none;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpGNzdGMTE3NDA3MjA2ODExODIyQUNDRTE5M0FEN0FEQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo0QjQ3OTIzNkI3NEQxMUUxODVFM0E5RkQzRkE4MDc5QiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo0QjQ3OTIzNUI3NEQxMUUxODVFM0E5RkQzRkE4MDc5QiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QjkwRTAxMTQxMjIwNjgxMTgwODNEQUM5MDc1RTIzMkQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6Rjc3RjExNzQwNzIwNjgxMTgyMkFDQ0UxOTNBRDdBREMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4TU+XQAAAAcklEQVQY02NgwA/YoJgoEA/Es4DYgJBCJSBeD8SboRinBiYg7kZS2IosyQ/Eakh8LySFq4FYHFlxGRBvBOJYqMRqJMU+yApNkSRAeC0Sux3dfSCTetE0wKyXxOWhMKhTYIr9CAUXyJMzgLgBagBBgDPGAI2LGdNt0T1AAAAAAElFTkSuQmCC');
+  background-size: 100% 100%;
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
 }
