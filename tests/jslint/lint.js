@@ -1,7 +1,14 @@
 $(function(){
     var
-        scripts = ['../../js/excellent.js'],
+        scripts = [
+            '../../js/excellent.js',
+            '../../js/background.js',
+            '../../js/notification.js',
+            '../../js/options.js',
+            '../../js/selection.js'],
         $txt = $('textarea'),
+        $checked = $('#checked'),
+        $current = $('#current'),
         ok = ' ✔ ok',
         fail = ' ✖ failed',
         config = {
@@ -19,10 +26,14 @@ $(function(){
                 'chrome',
                 'webkitNotifications',
                 'prompt',
-                'vkbeautify']
+                'vkbeautify',
+                'exsel',
+                '$',
+                'i18n']
         };
 
     $.each(scripts, function(index){
+       $current.text(scripts[index]);
        $.get(scripts[index], function(response){
 
             if (!JSLINT(response, config)) {
@@ -33,12 +44,13 @@ $(function(){
                         color : 'red' });
 
                 // update title
-                document.title = selected.text() + fail;
+                document.title = fail;
 
             } else {
                 $txt.text(ok).css({ color : 'green' });
-                document.title = selected.text() + ok;
+                document.title = ok;
             }
+            $checked.append(scripts[index] + ', ');
        });
     });
 });

@@ -176,7 +176,15 @@ html[dir='rtl'] .favicon-cell.weakrtl{-webkit-padding-end:22px;-webkit-padding-s
                     <label for="tab-6">SQL</label>
 
                     <div class="content">
-                        <pre>select * from foo where bar='fizz' and buzz='bazz' order by foobar limit 100;</pre>
+<pre>SELECT name, population, headofstate, top.nr FROM
+Country, ( SELECT countrycode, COUNT(*) AS nr
+FROM CountryLanguage WHERE isofficial='T' GROUP BY countrycode
+HAVING nr = ( SELECT MAX(summary.nr_official_languages) FROM (
+SELECT countrycode, COUNT(*) AS nr_official_languages
+FROM CountryLanguage
+WHERE isofficial='T'
+GROUP BY countrycode
+)AS summary ) ) as top WHERE Country.code=top.countrycode</pre>
                     </div>
                 </div>
             </div>

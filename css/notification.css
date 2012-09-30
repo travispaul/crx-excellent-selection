@@ -1,5 +1,7 @@
 body {
     height:150px;
+    width:100%;
+    overflow:hidden;
 }
 
 textarea {
@@ -9,6 +11,7 @@ textarea {
     margin:0;
     white-space: pre;
     overflow: auto;
+    padding: 0;
 }
 
 textarea:focus{

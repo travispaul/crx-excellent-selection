@@ -1,25 +1,31 @@
+(function (window, undefined) {
 
-'use strict';
+    'use strict';
 
-exsel.createCtxMenus();
+    exsel.createCtxMenus();
 
-chrome.extension.onMessage.addListener( function(request, sender, sendResponse){
-    if(!request.get) {
+    function msgHandler(request, sender, sendResponse) {
+        if (!request.get) {
 
-        var output = exsel.getOutputMethod();
+            var
+                output = exsel.getOutputMethod(),
+                notification = 'notification.html';
 
-        localStorage.setItem('lastSelection', JSON.stringify(request));
+            localStorage.setItem('lastSelection', JSON.stringify(request));
 
-        if(output.useNotifications === 'on'){
-            webkitNotifications.createHTMLNotification('notification.html').show();
+            if (output.useNotifications === 'on') {
+                webkitNotifications.createHTMLNotification(notification).show();
+            }
+
+            if (output.useTabs === 'on') {
+                chrome.tabs.create({ url : notification});
+            }
+
+        } else {
+            sendResponse({ get: exsel[request.get]() });
         }
-
-        if(output.useTabs === 'on'){
-            console.log('USE TABS');
-            chrome.tabs.create({ url : 'notification.html'});
-        }
-        
-    } else {
-        sendResponse({ get: exsel[request.get]() });
     }
-});
+
+    chrome.extension.onMessage.addListener(msgHandler);
+
+}(window));

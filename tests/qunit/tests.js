@@ -139,7 +139,7 @@ $(function(){
         equal(exsel.filters.SHA512.exec({ selectionText: "" }), coreutilsEmpty.hash);
     });
 
-    test("Pig Lating", 2, function() {
+    test("Pig Latin", 2, function() {
         equal(exsel.filters.PigLatin.exec({ selectionText: 'This is kind of a joke' }), 'isThay is indkay of a okejay');
         equal(exsel.filters.PigLatin.exec({ selectionText: '' }), '');
     });

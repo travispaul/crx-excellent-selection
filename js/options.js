@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
 
     'use strict';
 
@@ -7,6 +7,7 @@ $(function() {
         $filterList = $('#filterList'),
         $filters,
         currentFilter,
+        checked = '',
         selectionStyle,
         visibleFilters = exsel.getFilters(),
         $selectionCheck = $('#selectionCheck'),
@@ -23,46 +24,52 @@ $(function() {
         var
             background = 'background: ' + selectionStyle.background + ';',
             color = 'color:'  + selectionStyle.color + ';';
-        $selectionPreview.text('').text('::selection {' + background + color + '}');
+        $selectionPreview.text('').text('::selection {' + background +
+            color + '}');
     }
 
     updateSelectionPreview();
 
     // get values from local storage
-    $localSetting.each(function(){
+    $localSetting.each(function () {
         this.value = localStorage.getItem(this.id);
     });
 
     // set a value when it chnages
-    $localSetting.change(function(){
+    $localSetting.change(function () {
         localStorage.setItem(this.id, this.value);
         updateSelectionPreview();
     });
 
-    for (currentFilter in exsel.filters) {
-        var checked = '';
-        if($.inArray(currentFilter, visibleFilters) !== -1) {
+
+    $.each(exsel.filters, function (currentFilter) {
+
+        checked = '';
+        if ($.inArray(currentFilter, visibleFilters) !== -1) {
             checked = 'checked';
         }
 
-        $filterList.append(
-        '<li>' +
-            '<input type="checkbox" id="'+currentFilter+'" class="filter" '+checked+'/>' +
-            '<label for="'+currentFilter+'" title="'+exsel.filters[currentFilter].desc+'">' +
+        $filterList.append('<li>' +
+                '<input type="checkbox" id="' + currentFilter +
+                '" class="filter" ' + checked + '/>' +
+                '<label for="' + currentFilter + '" title="' +
+                exsel.filters[currentFilter].desc + '">' +
                 exsel.filters[currentFilter].name +
-            '</label>' +
-        '</li>');
-    }
+                '</label>' +
+                '</li>'
+            );
+
+    });
 
     $filters = $('.filter');
 
     // anytime a single value is changed, the entire array is saved
-    $filters.change(function(){
+    $filters.change(function () {
 
         var filterArray = [];
 
-        $filters.each(function(){
-            if(this.checked) {
+        $filters.each(function () {
+            if (this.checked) {
                 filterArray.push(this.id);
             }
         });
@@ -71,8 +78,8 @@ $(function() {
         exsel.createCtxMenus();
     });
 
-    $selectionCheck.change(function(){
-        if(this.checked) {
+    $selectionCheck.change(function () {
+        if (this.checked) {
             $selectionOptions.show();
             $('input[type=color]').trigger('change');
         } else {
@@ -83,32 +90,32 @@ $(function() {
         }
     });
 
-    if(selectionStyle.color || selectionStyle.background) {
+    if (selectionStyle.color || selectionStyle.background) {
         $selectionCheck[0].checked = true;
         $selectionOptions.show();
     }
 
     $custom.val(localStorage.getItem('customPreviewText') || '');
 
-    $custom.blur(function(){
+    $custom.blur(function () {
         localStorage.setItem('customPreviewText', this.value);
     });
 
-    $i18nText.each(function(){
+    $i18nText.each(function () {
         this.textContent = i18n(this.dataset.i18nText);
     });
 
-    $i18nTitle.each(function(){
+    $i18nTitle.each(function () {
         this.title = i18n(this.dataset.i18nTitle);
     });
 
-    $.each(outputMethods, function(i){
-        if(outputMethods[i] === 'on') {
+    $.each(outputMethods, function (i) {
+        if (outputMethods[i] === 'on') {
             $('#' + i).attr('checked', true);
         }
     });
 
-    $outputMethod.change(function() {
+    $outputMethod.change(function () {
         localStorage.setItem(this.id, this.checked ? 'on' : 'off');
     });
 });
