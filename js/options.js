@@ -22,20 +22,27 @@ $(function () {
     function updateSelectionPreview() {
         selectionStyle = exsel.getSelectionStyle();
         var
-            background = 'background: ' + selectionStyle.background + ';',
-            color = 'color:'  + selectionStyle.color + ';';
-        $selectionPreview.text('').text('::selection {' + background +
-            color + '}');
+            background = (selectionStyle.background) ?
+                'background: ' + selectionStyle.background + ';' : '',
+            color = (selectionStyle.color) ?
+                color = 'color:'  + selectionStyle.color + ';' : '';
+
+        $selectionPreview.text('');
+
+        if (background || color) {
+            $selectionPreview.text('::selection {' + background + color + '}');
+        }
+
     }
 
     updateSelectionPreview();
 
-    // get values from local storage
+    // Get values from local storage
     $localSetting.each(function () {
         this.value = localStorage.getItem(this.id);
     });
 
-    // set a value when it chnages
+    // Set a value when it chnages
     $localSetting.change(function () {
         localStorage.setItem(this.id, this.value);
         updateSelectionPreview();
