@@ -56,6 +56,16 @@
 
 
 
+    "ClipboardTitle": {
+        "message": "Filtered text will be save to your clipbaord and can be pasted into any other application on your computer.",
+        "description" : "Title for useClipboard Option."
+    },
+
+    "ClipboardDesc": {
+        "message": "Save output to your clipboard.",
+        "description" : "Display output in a new tab."
+    },
+
     "NotificationTitle": {
         "message": "Show filtered output in a desktop notification.",
         "description" : "Use notifications for filtered text."

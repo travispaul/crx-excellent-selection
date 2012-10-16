@@ -18,7 +18,7 @@
             selectionBackground: null,
             useNotifications: 'on',
             useTabs: 'off',
-            clipboardWrite: false,
+            useClipboard: 'off',
             visibleFilters: ['LowerCase', 'UpperCase', 'Length', 'Shuffle',
                 'Reverse', 'Replace', 'WordCount', 'WordWrap', 'Base64Encode',
                 'Base64Decode', 'UrlEncode', 'StripTags', 'RemoveWhitespace',
@@ -50,7 +50,9 @@
                 useNotifications: localStorage.getItem('useNotifications')
                     || exsel.options.useNotifications,
                 useTabs: localStorage.getItem('useTabs')
-                    || exsel.options.useTabs
+                    || exsel.options.useTabs,
+                useClipboard: localStorage.getItem('useClipboard')
+                    || exsel.options.useClipboard
             };
         },
 

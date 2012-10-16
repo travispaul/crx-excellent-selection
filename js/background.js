@@ -9,9 +9,16 @@
 
             var
                 output = exsel.getOutputMethod(),
-                notification = 'notification.html';
+                notification = 'notification.html',
+                clipboard = document.getElementById('clipboard');
 
             localStorage.setItem('lastSelection', JSON.stringify(request));
+
+            if(output.useClipboard === 'on') {
+                clipboard.value = request.modified;
+                clipboard.select();
+                document.execCommand('copy');
+            }
 
             if (output.useNotifications === 'on') {
                 webkitNotifications.createHTMLNotification(notification).show();
