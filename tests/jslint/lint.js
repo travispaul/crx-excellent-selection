@@ -1,11 +1,16 @@
-$(function(){
+$(function () {
+
+    'use strict';
+
     var
         scripts = [
             '../../js/excellent.js',
             '../../js/background.js',
             '../../js/notification.js',
+            '../../js/tab.js',
             '../../js/options.js',
-            '../../js/selection.js'],
+            '../../js/selection.js',
+            'lint.js'],
         $txt = $('textarea'),
         $checked = $('#checked'),
         $current = $('#current'),
@@ -29,28 +34,45 @@ $(function(){
                 'vkbeautify',
                 'exsel',
                 '$',
-                'i18n']
-        };
+                'i18n',
+                'CodeMirror',
+                'JSLINT']
+        },
+        proceed = true,
+        r = (+new Date()),
+        count = scripts.length,
+        source = {};
 
-    $.each(scripts, function(index){
-       $current.text(scripts[index]);
-       $.get(scripts[index], function(response){
+    // Download each script
+    $.each(scripts, function (index) {
+        $.get(scripts[index] + '?' + r, function (response) {
+            source[scripts[index]] = response;
+            count -= 1;
+            // Lint after downloading the last script
+            if (count === 0) {
+                $.each(scripts, function (index2) {
 
-            if (!JSLINT(response, config)) {
+                    if (proceed) {
+                        $current.text(scripts[index2]);
+                        if (!JSLINT(source[scripts[index2]], config)) {
 
-                // format error output
-                $txt.text(JSLINT.errors.length + " Errors\n\n"
-                    + JSON.stringify(JSLINT.errors, undefined, 2)).css({
-                        color : 'red' });
+                            // format error output
+                            $txt.text(JSLINT.errors.length + " Errors\n\n"
+                                + JSON.stringify(JSLINT.errors, undefined, 2))
+                                    .css({ color : 'red' });
 
-                // update title
-                document.title = fail;
+                            // update title
+                            document.title = fail;
+                            proceed = false;
 
-            } else {
-                $txt.text(ok).css({ color : 'green' });
-                document.title = ok;
+                        } else {
+                            $txt.text(ok).css({ color : 'green' });
+                            document.title = ok;
+                        }
+                        $checked.append(scripts[index2] + ', ');
+                    }
+                });
             }
-            $checked.append(scripts[index] + ', ');
-       });
+        });
     });
 });

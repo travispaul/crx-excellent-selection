@@ -10,11 +10,12 @@
             var
                 output = exsel.getOutputMethod(),
                 notification = 'notification.html',
+                outputTab = 'tab.html',
                 clipboard = document.getElementById('clipboard');
 
             localStorage.setItem('lastSelection', JSON.stringify(request));
 
-            if(output.useClipboard === 'on') {
+            if (output.useClipboard === 'on') {
                 clipboard.value = request.modified;
                 clipboard.select();
                 document.execCommand('copy');
@@ -25,7 +26,7 @@
             }
 
             if (output.useTabs === 'on') {
-                chrome.tabs.create({ url : notification});
+                chrome.tabs.create({ url : outputTab });
             }
 
         } else {

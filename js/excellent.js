@@ -4,7 +4,7 @@
 
     function i18n(msg) {
         return (typeof chrome.i18n === 'object') ?
-                chrome.i18n.getMessage(msg) : '';
+                chrome.i18n.getMessage(msg) : msg;
     }
 
     var exsel = {
@@ -58,11 +58,13 @@
 
         // The selection has been filtered and is now processed
         returnSelection: function (original, modified, filter, url) {
+            var filterName = i18n(filter) || filter;
             if (exsel.runAsExtension) {
                 chrome.extension.sendMessage({
                     original: original,
                     modified: modified,
-                    filter: filter,
+                    filter: filterName,
+                    filterId: filter,
                     url: url
                 });
             }
@@ -76,7 +78,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         txt.selectionText.toLowerCase(),
-                        i18n('Lowercase'),
+                        'LowerCase',
                         txt.pageUrl);
                 }
             },
@@ -86,7 +88,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         txt.selectionText.toUpperCase(),
-                        i18n('Uppercase'),
+                        'UpperCase',
                         txt.pageUrl);
                 }
             },
@@ -95,7 +97,7 @@
                 desc: i18n('LengthDesc'),
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
-                        txt.selectionText.length, i18n('Length'),
+                        txt.selectionText.length, 'Length',
                         txt.pageUrl);
                 }
             },
@@ -115,7 +117,7 @@
                     }
 
                     return exsel.returnSelection(txt.selectionText,
-                        a.join(""), i18n('Shuffle'), txt.pageUrl);
+                        a.join(""), 'Shuffle', txt.pageUrl);
                 }
             },
             Reverse : {
@@ -124,7 +126,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         txt.selectionText.split("").reverse().join(""),
-                        i18n('Reverse'), txt.pageUrl);
+                        'Reverse', txt.pageUrl);
                 }
             },
             Replace: {
@@ -141,7 +143,7 @@
 
                     return exsel.returnSelection(txt.selectionText,
                         txt.selectionText.replace(exp, re),
-                        i18n('Replace'), txt.pageUrl);
+                        'Replace', txt.pageUrl);
                 }
             },
             WordCount: {
@@ -152,7 +154,7 @@
                             txt.selectionText.split(/\s+/).length : 0;
 
                     return exsel.returnSelection(txt.selectionText, words,
-                        i18n('WordCount'), txt.pageUrl);
+                        'WordCount', txt.pageUrl);
                 }
             },
             WordWrap: {
@@ -178,8 +180,8 @@
 
                     return exsel.returnSelection(txt.selectionText,
                         wordwrap(txt.selectionText,
-                            prompt('Line Width:'), "\n"),
-                            i18n('WordWrap'), txt.pageUrl);
+                            prompt('Line Width:'), "\n"), 'WordWrap',
+                            txt.pageUrl);
                 }
             },
             Base64Encode: {
@@ -187,7 +189,7 @@
                 desc: i18n('Base64EncodeDesc'),
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
-                        btoa(txt.selectionText), i18n('Base64Encode'),
+                        btoa(txt.selectionText), 'Base64Encode',
                         txt.pageUrl);
                 }
             },
@@ -196,7 +198,7 @@
                 desc: i18n('Base64DecodeDesc'),
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
-                        atob(txt.selectionText), i18n('Base64Decode'),
+                        atob(txt.selectionText), 'Base64Decode',
                         txt.pageUrl);
                 }
             },
@@ -205,7 +207,7 @@
                 desc: i18n('URLEncodeDesc'),
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
-                        escape(txt.selectionText), i18n('URLEncode'),
+                        escape(txt.selectionText), 'URLEncode',
                         txt.pageUrl);
                 }
             },
@@ -215,7 +217,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         txt.selectionText.replace(/(<([^>]+)>)/ig, ""),
-                        i18n('StripTags'), txt.pageUrl);
+                        'StripTags', txt.pageUrl);
                 }
             },
             RemoveWhitespace: {
@@ -224,7 +226,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         txt.selectionText.replace(/ /g, ''),
-                        i18n('RemoveWhitespace'), txt.pageUrl);
+                        'RemoveWhitespace', txt.pageUrl);
                 }
             },
             FormatXML: {
@@ -233,7 +235,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         vkbeautify.xml(txt.selectionText),
-                        i18n('FormatXML'), txt.pageUrl);
+                        'FormatXML', txt.pageUrl);
                 }
             },
             FormatJSON: {
@@ -242,7 +244,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         vkbeautify.json(txt.selectionText),
-                        i18n('FormatJSON'), txt.pageUrl);
+                        'FormatJSON', txt.pageUrl);
                 }
             },
             FormatCSS: {
@@ -251,7 +253,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         vkbeautify.css(txt.selectionText),
-                        i18n('FormatCSS'), txt.pageUrl);
+                        'FormatCSS', txt.pageUrl);
                 }
             },
             FormatSQL: {
@@ -260,7 +262,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         vkbeautify.sql(txt.selectionText),
-                        i18n('FormatSQL'), txt.pageUrl);
+                        'FormatSQL', txt.pageUrl);
                 }
             },
             MD5: {

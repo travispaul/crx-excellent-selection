@@ -23,9 +23,9 @@ $(function () {
         selectionStyle = exsel.getSelectionStyle();
         var
             background = (selectionStyle.background) ?
-                'background: ' + selectionStyle.background + ';' : '',
+                    'background: ' + selectionStyle.background + ';' : '',
             color = (selectionStyle.color) ?
-                color = 'color:'  + selectionStyle.color + ';' : '';
+                    'color:'  + selectionStyle.color + ';' : '';
 
         $selectionPreview.text('');
 
