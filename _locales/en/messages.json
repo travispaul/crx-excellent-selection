@@ -85,6 +85,16 @@
     },
 
 
+    "InputReplaceTitle": {
+        "message": "When this option is enabled and the selected text is inside a textbox it will replace the filtered output and not use any other method.",
+        "description" : "Will replace text found in input and textareas"
+    },
+
+    "InputReplaceDesc": {
+        "message": "Replace text in text boxes.",
+        "description" : "Replace text."
+    },
+
     "Filters": {
         "message": "Filters",
         "description" : "Text modification functions."

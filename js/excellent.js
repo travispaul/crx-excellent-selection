@@ -19,6 +19,7 @@
             useNotifications: 'on',
             useTabs: 'off',
             useClipboard: 'off',
+            useReplace: 'on',
             visibleFilters: ['LowerCase', 'UpperCase', 'Length', 'Shuffle',
                 'Reverse', 'Replace', 'WordCount', 'WordWrap', 'Base64Encode',
                 'Base64Decode', 'UrlEncode', 'StripTags', 'RemoveWhitespace',
@@ -52,12 +53,14 @@
                 useTabs: localStorage.getItem('useTabs')
                     || exsel.options.useTabs,
                 useClipboard: localStorage.getItem('useClipboard')
-                    || exsel.options.useClipboard
+                    || exsel.options.useClipboard,
+                useReplace: localStorage.getItem('useReplace')
+                    || exsel.options.useReplace
             };
         },
 
         // The selection has been filtered and is now processed
-        returnSelection: function (original, modified, filter, url) {
+        returnSelection: function (original, modified, filter, url, editable) {
             var filterName = i18n(filter) || filter;
             if (exsel.runAsExtension) {
                 chrome.extension.sendMessage({
@@ -65,7 +68,8 @@
                     modified: modified,
                     filter: filterName,
                     filterId: filter,
-                    url: url
+                    url: url,
+                    editable: editable
                 });
             }
             return modified;
@@ -79,7 +83,8 @@
                     return exsel.returnSelection(txt.selectionText,
                         txt.selectionText.toLowerCase(),
                         'LowerCase',
-                        txt.pageUrl);
+                        txt.pageUrl,
+                        txt.editable);
                 }
             },
             UpperCase: {
@@ -89,7 +94,8 @@
                     return exsel.returnSelection(txt.selectionText,
                         txt.selectionText.toUpperCase(),
                         'UpperCase',
-                        txt.pageUrl);
+                        txt.pageUrl,
+                        txt.editable);
                 }
             },
             Length: {
@@ -98,7 +104,8 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         txt.selectionText.length, 'Length',
-                        txt.pageUrl);
+                        txt.pageUrl,
+                        txt.editable);
                 }
             },
             Shuffle: {
@@ -117,7 +124,7 @@
                     }
 
                     return exsel.returnSelection(txt.selectionText,
-                        a.join(""), 'Shuffle', txt.pageUrl);
+                        a.join(""), 'Shuffle', txt.pageUrl, txt.editable);
                 }
             },
             Reverse : {
@@ -126,7 +133,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         txt.selectionText.split("").reverse().join(""),
-                        'Reverse', txt.pageUrl);
+                        'Reverse', txt.pageUrl, txt.editable);
                 }
             },
             Replace: {
@@ -143,7 +150,7 @@
 
                     return exsel.returnSelection(txt.selectionText,
                         txt.selectionText.replace(exp, re),
-                        'Replace', txt.pageUrl);
+                        'Replace', txt.pageUrl, txt.editable);
                 }
             },
             WordCount: {
@@ -154,7 +161,7 @@
                             txt.selectionText.split(/\s+/).length : 0;
 
                     return exsel.returnSelection(txt.selectionText, words,
-                        'WordCount', txt.pageUrl);
+                        'WordCount', txt.pageUrl, txt.editable);
                 }
             },
             WordWrap: {
@@ -181,7 +188,7 @@
                     return exsel.returnSelection(txt.selectionText,
                         wordwrap(txt.selectionText,
                             prompt('Line Width:'), "\n"), 'WordWrap',
-                            txt.pageUrl);
+                            txt.pageUrl, txt.editable);
                 }
             },
             Base64Encode: {
@@ -190,7 +197,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         btoa(txt.selectionText), 'Base64Encode',
-                        txt.pageUrl);
+                        txt.pageUrl, txt.editable);
                 }
             },
             Base64Decode: {
@@ -199,7 +206,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         atob(txt.selectionText), 'Base64Decode',
-                        txt.pageUrl);
+                        txt.pageUrl, txt.editable);
                 }
             },
             UrlEncode: {
@@ -208,7 +215,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         escape(txt.selectionText), 'URLEncode',
-                        txt.pageUrl);
+                        txt.pageUrl, txt.editable);
                 }
             },
             StripTags: {
@@ -217,7 +224,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         txt.selectionText.replace(/(<([^>]+)>)/ig, ""),
-                        'StripTags', txt.pageUrl);
+                        'StripTags', txt.pageUrl, txt.editable);
                 }
             },
             RemoveWhitespace: {
@@ -226,7 +233,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         txt.selectionText.replace(/ /g, ''),
-                        'RemoveWhitespace', txt.pageUrl);
+                        'RemoveWhitespace', txt.pageUrl, txt.editable);
                 }
             },
             FormatXML: {
@@ -235,7 +242,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         vkbeautify.xml(txt.selectionText),
-                        'FormatXML', txt.pageUrl);
+                        'FormatXML', txt.pageUrl, txt.editable);
                 }
             },
             FormatJSON: {
@@ -244,7 +251,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         vkbeautify.json(txt.selectionText),
-                        'FormatJSON', txt.pageUrl);
+                        'FormatJSON', txt.pageUrl, txt.editable);
                 }
             },
             FormatCSS: {
@@ -253,7 +260,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         vkbeautify.css(txt.selectionText),
-                        'FormatCSS', txt.pageUrl);
+                        'FormatCSS', txt.pageUrl, txt.editable);
                 }
             },
             FormatSQL: {
@@ -262,7 +269,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         vkbeautify.sql(txt.selectionText),
-                        'FormatSQL', txt.pageUrl);
+                        'FormatSQL', txt.pageUrl, txt.editable);
                 }
             },
             MD5: {
@@ -271,7 +278,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         CryptoJS.MD5(txt.selectionText).toString(), 'MD5',
-                            txt.pageUrl);
+                            txt.pageUrl, txt.editable);
                 }
             },
             SHA1: {
@@ -280,7 +287,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         CryptoJS.SHA1(txt.selectionText).toString(), 'SHA1',
-                            txt.pageUrl);
+                            txt.pageUrl, txt.editable);
                 }
             },
             SHA224: {
@@ -289,7 +296,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         CryptoJS.SHA224(txt.selectionText).toString(),
-                        'SHA224', txt.pageUrl);
+                        'SHA224', txt.pageUrl, txt.editable);
                 }
             },
             SHA256: {
@@ -298,7 +305,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         CryptoJS.SHA256(txt.selectionText).toString(),
-                        'SHA256', txt.pageUrl);
+                        'SHA256', txt.pageUrl, txt.editable);
                 }
             },
             SHA384: {
@@ -307,7 +314,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         CryptoJS.SHA384(txt.selectionText).toString(),
-                        'SHA384', txt.pageUrl);
+                        'SHA384', txt.pageUrl, txt.editable);
                 }
             },
             SHA512: {
@@ -316,7 +323,7 @@
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         CryptoJS.SHA512(txt.selectionText).toString(),
-                        'SHA512', txt.pageUrl);
+                        'SHA512', txt.pageUrl, txt.editable);
                 }
             },
             PigLatin: {
@@ -331,7 +338,7 @@
                     text = txt.selectionText.replace(secondPass, "$2$1ay");
 
                     return exsel.returnSelection(txt.selectionText,
-                            text, 'Pig Latin', txt.pageUrl);
+                            text, 'Pig Latin', txt.pageUrl, txt.editable);
                 }
             }
         },

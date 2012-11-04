@@ -20,4 +20,14 @@ $(function () {
 
     });
 
+    chrome.extension.onMessage.addListener(function (request) {
+        var sel, range;
+        sel = window.getSelection();
+        if (sel.rangeCount) {
+            range = sel.getRangeAt(0);
+            range.deleteContents();
+            range.insertNode(document.createTextNode(request.replacementText));
+        }
+    });
+
 });

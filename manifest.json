@@ -18,7 +18,8 @@
         "notifications",
         "unlimitedStorage",
         "http://*/*",
-        "https://*/*"
+        "https://*/*",
+        "tabs"
     ],
     "content_scripts": [{
         "matches": ["http://*/*", "https://*/*"],
