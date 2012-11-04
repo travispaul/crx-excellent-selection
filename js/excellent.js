@@ -283,6 +283,15 @@
                             txt.pageUrl);
                 }
             },
+            SHA224: {
+                name: 'SHA224',
+                desc: i18n('SHA224Desc'),
+                exec: function (txt) {
+                    return exsel.returnSelection(txt.selectionText,
+                        CryptoJS.SHA224(txt.selectionText).toString(),
+                        'SHA224', txt.pageUrl);
+                }
+            },
             SHA256: {
                 name: 'SHA256',
                 desc: i18n('SHA256Desc'),
@@ -290,6 +299,15 @@
                     return exsel.returnSelection(txt.selectionText,
                         CryptoJS.SHA256(txt.selectionText).toString(),
                         'SHA256', txt.pageUrl);
+                }
+            },
+            SHA384: {
+                name: 'SHA384',
+                desc: i18n('SHA384Desc'),
+                exec: function (txt) {
+                    return exsel.returnSelection(txt.selectionText,
+                        CryptoJS.SHA384(txt.selectionText).toString(),
+                        'SHA384', txt.pageUrl);
                 }
             },
             SHA512: {

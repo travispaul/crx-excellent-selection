@@ -107,6 +107,22 @@ $(function(){
         equal(exsel.filters.SHA1.exec({ selectionText: "" }), coreutilsEmpty.hash);
     });
 
+    test("SHA224", 2, function() {
+
+        // sha256 from coreutils
+        var coreutils = {
+            text: "I am a SHA-224 hash from sha224sum (GNU coreutils) 8.4",
+            hash: "debbba8c5da5a3eb14c6d93a0eb766743c03bae85ea6dd09f394f33c"
+        },
+        coreutilsEmpty = {
+            text: "",
+            hash: "d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f"
+        }
+
+        equal(exsel.filters.SHA224.exec({ selectionText: coreutils.text }), coreutils.hash);
+        equal(exsel.filters.SHA224.exec({ selectionText: "" }), coreutilsEmpty.hash);
+    });
+
     test("SHA256", 2, function() {
 
         // sha256 from coreutils
@@ -121,6 +137,22 @@ $(function(){
 
         equal(exsel.filters.SHA256.exec({ selectionText: coreutils.text }), coreutils.hash);
         equal(exsel.filters.SHA256.exec({ selectionText: "" }), coreutilsEmpty.hash);
+    });
+
+    test("SHA384", 2, function() {
+
+        // sha256 from coreutils
+        var coreutils = {
+            text: "I am a SHA-384 hash from sha384sum (GNU coreutils) 8.4",
+            hash: "4820b19b2dc805f49f00b97d1e8a6ab4b2c1d3b6e5dbfce7216881d44f912d0195313983aa1e0ef677439385f555a63b"
+        },
+        coreutilsEmpty = {
+            text: "",
+            hash: "38b060a751ac96384cd9327eb1b1e36a21fdb71114be07434c0cc7bf63f6e1da274edebfe76f65fbd51ad2f14898b95b"
+        }
+
+        equal(exsel.filters.SHA384.exec({ selectionText: coreutils.text }), coreutils.hash);
+        equal(exsel.filters.SHA384.exec({ selectionText: "" }), coreutilsEmpty.hash);
     });
 
     test("SHA512", 2, function() {

@@ -54,8 +54,6 @@
         "description" : "Description next to checkbox."
     },
 
-
-
     "ClipboardTitle": {
         "message": "Filtered text will be save to your clipbaord and can be pasted into any other application on your computer.",
         "description" : "Title for useClipboard Option."
@@ -85,9 +83,6 @@
         "message": "Display output in a new tab.",
         "description" : "Display output in a new tab."
     },
-
-
-
 
 
     "Filters": {
@@ -263,8 +258,18 @@
         "description" : "filter description"
     },
 
+    "SHA224Desc": {
+        "message": "Return SHA224 hash of selection.",
+        "description" : "filter description"
+    },
+
     "SHA256Desc": {
         "message": "Return SHA256 hash of selection.",
+        "description" : "filter description"
+    },
+
+    "SHA384Desc": {
+        "message": "Return SHA384 hash of selection.",
         "description" : "filter description"
     },
 
