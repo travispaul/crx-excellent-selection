@@ -21,8 +21,10 @@ The following commands are added to the right-click context menu of selected tex
 * Format CSS
 * Format SQL
 * MD5
-* SHA1
-* SHA256
-* SHA512
+* SHA-1
+* SHA-224
+* SHA-256
+* SHA-384
+* SHA-512
 
 [1]: https://chrome.google.com/webstore/detail/excellent-selection/enhkggpdbpffnbhbaimnpdjbmenlhmkm
