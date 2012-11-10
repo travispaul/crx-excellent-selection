@@ -7,6 +7,11 @@
         <style id="selectionPreview"></style>
     </head>
     <body>
+        <div class="filters">
+            <h2 data-i18n-text="Filters"></h2>
+            <p data-i18n-text="FiltersDesc"></p>
+            <ul id="filterList"></ul>
+        </div>
         <div class="options">
             <h2 data-i18n-text="Options"></h2>
             <ul>
@@ -27,19 +32,59 @@
                     <label for="selectionCheck" data-i18n-title="SelectionTextColorTitle" data-i18n-text="SelectionTextColorDesc"></label>
                     <ul id="selectionOptions">
                         <li>
-                            <label data-i18n-text="SelectionTextColor"></label>
+                            <label data-i18n-text="SelectionTextColor" class="colorLabel" for="selectionColor"></label>
                             <input id="selectionColor" type="color" class="localSetting"/>
                         </li>
                         <li>
-                            <label data-i18n-text="SelectionBackgroundColor"></label>
+                            <label data-i18n-text="SelectionBackgroundColor" class="colorLabel" for="selectionBackground"></label>
                             <input id="selectionBackground" type="color" class="localSetting"/>
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a id="advanced" data-i18n-text="ShowAdvanced" href="#"></a>
+                </li>
             </ul>
-            <h2 data-i18n-text="Filters"></h2>
-            <p data-i18n-text="FiltersDesc"></p>
-            <ul id="filterList"></ul>
+            <div id="advancedOptions">
+                <h2 data-i18n-text="AdvancedOptions"></h2>
+                <ul>
+                    <li>
+                        <label for="EncKeyIV" data-i18n-text="EncKeyIV"></label>
+                        <select id="EncKeyIV">
+                            <option data-i18n-text="OptDefaults" value="default"></option>
+                            <option data-i18n-text="OptCustom" value="custom"></option>
+                            <option data-i18n-text="OptPrompt" value="prompt"></option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="EncBlockMode" data-i18n-text="EncBlockMode"></label>
+                        <select id="EncBlockMode">
+                            <option>CBC</option>
+                            <option>CFB</option>
+                            <option>CTR</option>
+                            <option>OFB</option>
+                            <option>ECB</option>
+                            <option data-i18n-text="OptPrompt" value="prompt"></option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="EncPadding" data-i18n-text="EncPadding"></label>
+                        <select id="EncPadding">
+                            <option>Pkcs7</option>
+                            <option>Iso97971</option>
+                            <option>AnsiX923</option>
+                            <option>Iso10126</option>
+                            <option>ZeroPadding</option>
+                            <option>NoPadding</option>
+                            <option data-i18n-text="OptPrompt" value="prompt"></option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+        <div id="changelog">
+                <h2 data-i18n-text="Changelog"></h2>
+                <pre></pre>
+        </div>
         </div>
         <div class="preview">
             <h2 data-i18n-text="Preview"></h2>
@@ -195,13 +240,6 @@ GROUP BY countrycode
         </div>
 
         <script src="js/zepto.min.js"></script>
-        <script src="js/md5.js"></script>
-        <script src="js/sha1.js"></script>
-        <script src="js/sha224.js"></script>
-        <script src="js/sha256.js"></script>
-        <script src="js/sha384.js"></script>
-        <script src="js/sha512.js"></script>
-        <script src="js/vkbeautify.js"></script>
         <script src="js/excellent.js"></script>
         <script src="js/options.js"></script>
     </body>

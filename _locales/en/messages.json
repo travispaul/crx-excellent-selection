@@ -84,7 +84,6 @@
         "description" : "Display output in a new tab."
     },
 
-
     "Filters": {
         "message": "Filters",
         "description" : "Text modification functions."
@@ -93,6 +92,63 @@
     "FiltersDesc": {
         "message": "Choose the filters you would like to see in the context menu.",
         "description" : "Text underneath Filters heading"
+    },
+
+    "Changelog" : {
+        "message": "Changelog",
+        "description" : "Show features added in each release."
+    },
+
+    "EncKeyIV" : {
+        "message": "Key and IV for Encryption Filters: ",
+        "description" : "as described"
+    },
+
+    "EncBlockMode" : {
+        "message": "Encryption Block Mode: ",
+        "description" : "as described"
+    },
+
+    "EncPadding" : {
+        "message": "Encryption Padding: ",
+        "description" : "as described"
+    },
+
+
+    "OptDefaults" : {
+        "message": "Use Defaults",
+        "description" : "as described"
+    },
+    "OptCustom" : {
+        "message": "Set Custom",
+        "description" : "as described"
+    },
+    "OptPrompt" : {
+        "message": "Prompt each time",
+        "description" : "as described"
+    },
+
+
+
+
+
+
+
+
+
+    "AdvancedOptions" : {
+        "message": "Advanced Options",
+        "description" : "Header for advanced options."
+    },
+
+    "ShowAdvanced" : {
+        "message": "Show Advanced",
+        "description" : "button to show advanced options"
+    },
+
+    "HideAdvanced" : {
+        "message": "Hide Advanced",
+        "description" : "button to hide advanced options"
     },
 
     "Lowercase": {
@@ -276,6 +332,31 @@
     "SHA512Desc": {
         "message": "Return SHA512 hash of selection.",
         "description" : "filter description"
+    },
+
+    "AESEncrypt": {
+        "message" : "Encrypt with AES",
+        "description" : "filter name"
+    },
+
+    "AESEncryptDesc": {
+        "message" : "Encrypt with the Advanced Encryption Standard (AES).",
+        "description" : "filter description"
+    },
+
+    "AESDecrypt": {
+        "message" : "Decrypt with AES",
+        "description" : "filter name"
+    },
+
+    "AESDecryptDesc": {
+        "message" : "Decrypt with the Advanced Encryption Standard (AES).",
+        "description" : "filter description"
+    },
+
+    "EncryptPrompt": {
+        "message" : "Encryption Passphrase:",
+        "description" : "Prompt text when requesting an encryption pass phrase."
     },
 
     "PigLatinDesc": {

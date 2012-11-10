@@ -17,7 +17,10 @@ $(function () {
         $i18nText = $('[data-i18n-text]'),
         $i18nTitle = $('[data-i18n-title]'),
         $outputMethod = $('.outputMethod'),
-        outputMethods = exsel.getOutputMethod();
+        outputMethods = exsel.getOutputMethod(),
+        $advanced = $('#advanced'),
+        $advancedOpt = $('#advancedOptions'),
+        $changelog = $('#changelog pre');
 
     function updateSelectionPreview() {
         selectionStyle = exsel.getSelectionStyle();
@@ -124,5 +127,19 @@ $(function () {
 
     $outputMethod.change(function () {
         localStorage.setItem(this.id, this.checked ? 'on' : 'off');
+    });
+
+    $advanced.click(function () {
+        if (this.dataset.i18nText === 'ShowAdvanced') {
+            this.dataset.i18nText = 'HideAdvanced';
+        } else {
+            this.dataset.i18nText = 'ShowAdvanced';
+        }
+        this.textContent = i18n(this.dataset.i18nText);
+        $advancedOpt.toggle();
+    });
+
+    $.get('changelog.txt', function (response) {
+        $changelog.text(response);
     });
 });

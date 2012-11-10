@@ -48,7 +48,7 @@ $(function(){
         var coreutils = {
             text: "I am a Base64 encoded string from base64 (GNU coreutils) 8.4",
             string: "SSBhbSBhIEJhc2U2NCBlbmNvZGVkIHN0cmluZyBmcm9tIGJhc2U2NCAoR05VIGNvcmV1dGlscykgOC40"
-        }
+        };
 
         equal(exsel.filters.Base64Encode.exec({ selectionText: coreutils.text }), coreutils.string);
     });
@@ -58,7 +58,7 @@ $(function(){
         var coreutils = {
             text: "I am a Base64 encoded string from base64 (GNU coreutils) 8.4",
             string: "SSBhbSBhIEJhc2U2NCBlbmNvZGVkIHN0cmluZyBmcm9tIGJhc2U2NCAoR05VIGNvcmV1dGlscykgOC40"
-        }
+        };
 
         equal(exsel.filters.Base64Decode.exec({ selectionText: coreutils.string }), coreutils.text);
     });
@@ -85,7 +85,7 @@ $(function(){
         coreutilsEmpty = {
             text: "",
             hash: "d41d8cd98f00b204e9800998ecf8427e"
-        }
+        };
 
         equal(exsel.filters.MD5.exec({ selectionText: coreutils.text }), coreutils.hash);
         equal(exsel.filters.MD5.exec({ selectionText: "" }), coreutilsEmpty.hash);
@@ -101,7 +101,7 @@ $(function(){
         coreutilsEmpty = {
             text: "",
             hash: "da39a3ee5e6b4b0d3255bfef95601890afd80709"
-        }
+        };
         
         equal(exsel.filters.SHA1.exec({ selectionText: coreutils.text }), coreutils.hash);
         equal(exsel.filters.SHA1.exec({ selectionText: "" }), coreutilsEmpty.hash);
@@ -117,7 +117,7 @@ $(function(){
         coreutilsEmpty = {
             text: "",
             hash: "d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f"
-        }
+        };
 
         equal(exsel.filters.SHA224.exec({ selectionText: coreutils.text }), coreutils.hash);
         equal(exsel.filters.SHA224.exec({ selectionText: "" }), coreutilsEmpty.hash);
@@ -133,7 +133,7 @@ $(function(){
         coreutilsEmpty = {
             text: "",
             hash: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-        }
+        };
 
         equal(exsel.filters.SHA256.exec({ selectionText: coreutils.text }), coreutils.hash);
         equal(exsel.filters.SHA256.exec({ selectionText: "" }), coreutilsEmpty.hash);
@@ -149,7 +149,7 @@ $(function(){
         coreutilsEmpty = {
             text: "",
             hash: "38b060a751ac96384cd9327eb1b1e36a21fdb71114be07434c0cc7bf63f6e1da274edebfe76f65fbd51ad2f14898b95b"
-        }
+        };
 
         equal(exsel.filters.SHA384.exec({ selectionText: coreutils.text }), coreutils.hash);
         equal(exsel.filters.SHA384.exec({ selectionText: "" }), coreutilsEmpty.hash);
@@ -165,10 +165,41 @@ $(function(){
         coreutilsEmpty = {
             text: "",
             hash: "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e"
-        }
+        };
 
         equal(exsel.filters.SHA512.exec({ selectionText: coreutils.text }), coreutils.hash);
         equal(exsel.filters.SHA512.exec({ selectionText: "" }), coreutilsEmpty.hash);
+    });
+
+    test("AES with Defaults", 4, function() {
+
+        // AES from openssl
+        // echo -n "I am a string encrypted with AES (Openssl 1.0.0)" | openssl enc -aes-256-cbc  -pass pass:"Everything Burrito" -e -base64
+        var AES = {
+            text: "I am a string encrypted with AES (Openssl 1.0.0)",
+            pass: "Everything Burrito",
+            encrypted: "U2FsdGVkX1+gEbztDPeHhsSTVGkpGmE12AR3PN1J9QvWTIV/Ri3XBP1e2JeLN3WG0xCuv4hhzjDrsCw/bhO+2E2lDjW+Xj7w2d7eSQyqCWI="
+        },
+        AESEmpty = {
+            text: "",
+            encrypted: "U2FsdGVkX1/0JddLBFnONQGfyidQgsvucSaj2CNw5iw=" //encrypted with openssl
+        },
+        CryptoEmpty,
+        CryptoString = "I am a string that will be encrypted and decrypted with CryptoJS",
+        CryptoEnc;
+
+        equal(exsel.filters.AESDecrypt.exec({ selectionText: AES.encrypted, prompt: { password: AES.pass } }), AES.text, "Decrypt OpenSSL");
+
+        CryptoEmpty = exsel.filters.AESEncrypt.exec({ selectionText: AESEmpty.text, prompt: { password: AES.pass } });
+
+        equal(exsel.filters.AESDecrypt.exec({ selectionText: CryptoEmpty, prompt: { password: AES.pass } }), "", "Decrypt Empty String");
+
+        equal(exsel.filters.AESDecrypt.exec({ selectionText: AESEmpty.encrypted, prompt: { password: AES.pass } }), "", "Decrypt OpenSSL Empty String");
+
+        CryptoEnc = exsel.filters.AESEncrypt.exec({ selectionText: CryptoString, prompt: { password: AES.pass } });
+
+        equal(exsel.filters.AESDecrypt.exec({ selectionText: CryptoEnc, prompt: { password: AES.pass } }), CryptoString, "Full Encrypt/Decrypt test");
+
     });
 
     test("Pig Latin", 2, function() {

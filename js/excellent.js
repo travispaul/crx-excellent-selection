@@ -319,6 +319,46 @@
                         'SHA512', txt.pageUrl);
                 }
             },
+            AESEncrypt: {
+                name: i18n('AESEncrypt'),
+                desc: i18n('AESEncryptDesc'),
+                exec: function (txt) {
+
+                    var password, encrypted;
+
+                    if (exsel.runAsExtension === false && txt.prompt) {
+                        password = txt.prompt.password;
+                    } else {
+                        password = prompt(i18n('EncryptPrompt'));
+                    }
+
+                    encrypted = CryptoJS.AES.encrypt(txt.selectionText,
+                            password).toString();
+
+                    return exsel.returnSelection(txt.selectionText,
+                        encrypted, 'AESEncrypt', txt.pageUrl);
+                }
+            },
+            AESDecrypt: {
+                name: i18n('AESDecrypt'),
+                desc: i18n('AESDecryptDesc'),
+                exec: function (txt) {
+
+                    var password, decrypted;
+
+                    if (exsel.runAsExtension === false && txt.prompt) {
+                        password = txt.prompt.password;
+                    } else {
+                        password = prompt(i18n('EncryptPrompt'));
+                    }
+
+                    decrypted = CryptoJS.AES.decrypt(txt.selectionText,
+                            password).toString(CryptoJS.enc.Utf8);
+
+                    return exsel.returnSelection(txt.selectionText,
+                        decrypted, 'AESDecrypt', txt.pageUrl);
+                }
+            },
             PigLatin: {
                 name: 'Pig Latin',
                 desc: i18n('PigLatinDesc'),
