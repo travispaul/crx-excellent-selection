@@ -1,6 +1,6 @@
 Excellent Selection - Chrome Extension
 ======================================
-Install at the [Chrome Web Store][1]
+Install from the [Chrome Web Store][1]
 
 The following commands are added to the right-click context menu of selected text.
 * Lowercase
@@ -26,5 +26,7 @@ The following commands are added to the right-click context menu of selected tex
 * SHA-256
 * SHA-384
 * SHA-512
+* AES Encrypt
+* AES Decrypt
 
 [1]: https://chrome.google.com/webstore/detail/excellent-selection/enhkggpdbpffnbhbaimnpdjbmenlhmkm
