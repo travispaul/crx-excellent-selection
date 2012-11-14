@@ -20,7 +20,10 @@ $(function () {
         outputMethods = exsel.getOutputMethod(),
         $advanced = $('#advanced'),
         $advancedOpt = $('#advancedOptions'),
-        $changelog = $('#changelog pre');
+        $changelog = $('#changelog pre'),
+        $encIV = $('#EncKeyIV'),
+        $encIVCustom = $('.EncKeyIVCustomLi');
+
 
     function updateSelectionPreview() {
         selectionStyle = exsel.getSelectionStyle();
@@ -35,7 +38,6 @@ $(function () {
         if (background || color) {
             $selectionPreview.text('::selection {' + background + color + '}');
         }
-
     }
 
     updateSelectionPreview();
@@ -142,4 +144,20 @@ $(function () {
     $.get('changelog.txt', function (response) {
         $changelog.text(response);
     });
+
+    function customIV() {
+        if ($encIV.val() === 'custom') {
+            $encIVCustom.show();
+        } else {
+            $encIVCustom.hide();
+            $encIVCustom.find('input').val('');
+        }
+    }
+
+    customIV();
+
+    $encIV.change(customIV);
+
+    
+
 });

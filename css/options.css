@@ -17,8 +17,15 @@ ul li {
     padding-top:2px;
 }
 
-li select {
+li select{
     float:right;
+    width: 120px;
+}
+
+li input[type=text], li input[type=password] {
+    float:right;
+    width: 115px;
+    padding-left:3px;
 }
 
 textarea{
@@ -98,6 +105,10 @@ h2{
     display:none;
 }
 
+
+.hidden{
+    display:none;
+}
 /*
 * Thanks Chris Coyier! You Rock!
 * http://css-tricks.com/functional-css-tabs-revisited/
