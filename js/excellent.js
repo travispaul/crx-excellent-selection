@@ -19,11 +19,30 @@
             useNotifications: 'on',
             useTabs: 'off',
             useClipboard: 'off',
+            encryption: {
+                EncBlockMode: 'CBC',
+                EncPadding: 'Pkcs7',
+                EncKeyIV: 'default'
+            },
             visibleFilters: ['LowerCase', 'UpperCase', 'Length', 'Shuffle',
                 'Reverse', 'Replace', 'WordCount', 'WordWrap', 'Base64Encode',
                 'Base64Decode', 'UrlEncode', 'StripTags', 'RemoveWhitespace',
                 'MD5', 'SHA1', 'SHA256', 'SHA512', 'FormatXML', 'FormatJSON',
                 'FormatCSS', 'FormatSQL']
+        },
+
+        // Get encryption oprions or defaults
+        getEncryptionOptions: function () {
+            return {
+                blockMode: localStorage.getItem('EncBlockMode')
+                    || exsel.options.encryption.EncBlockMode,
+                padding: localStorage.getItem('EncPadding')
+                    || exsel.options.encryption.EncPadding,
+                key: exsel.options.encryption.EncKeyIV === 'custom' ?
+                    localStorage.getItem('EncKeyCustom') : null,
+                iv: exsel.options.encryption.EncKeyIV === 'custom' ?
+                    localStorage.getItem('EncIVCustom') : null
+            };
         },
 
         // Get list of active filters
@@ -139,7 +158,6 @@
                         re = (txt.hasOwnProperty('replace')) ?
                                 txt.replace : prompt('Replace'),
                         exp = new RegExp(find, 'g');
-
 
                     return exsel.returnSelection(txt.selectionText,
                         txt.selectionText.replace(exp, re),
@@ -344,7 +362,7 @@
                 desc: i18n('AESDecryptDesc'),
                 exec: function (txt) {
 
-                    var password, decrypted;
+                    var password, decrypted, opt = exsel.getEncryptionOptions();
 
                     if (exsel.runAsExtension === false && txt.prompt) {
                         password = txt.prompt.password;
