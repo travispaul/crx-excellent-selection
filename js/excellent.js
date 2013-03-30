@@ -62,7 +62,7 @@
             if (exsel.runAsExtension) {
                 chrome.extension.sendMessage({
                     original: original,
-                    modified: modified,
+                    modified: modified.toString(),
                     filter: filterName,
                     filterId: filter,
                     url: url
