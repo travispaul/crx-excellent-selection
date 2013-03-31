@@ -1,0 +1,305 @@
+{
+    "extName": {
+        "message": " Selección Excelente",
+        "description" : "Name of extension"
+    },
+
+    "extDescription": {
+        "message": " Transforma el texto seleccionado usando uno de  los diferentes filtros integrados.",
+        "description" : "Description of extension"
+    },
+
+    "Options": {
+        "message": "Opciones",
+        "description" : "Extension Options."
+    },
+
+    "Preview": {
+        "message": "Previsualizar",
+        "description" : "Extension Preview."
+    },
+
+    "Custom": {
+        "message": "Personalizar",
+        "description" : "Tab title for custom text."
+    },
+
+    "Text": {
+        "message": "Texto",
+        "description" : "Tab title for text."
+    },
+
+    "SelectionColor": {
+        "message": "Seleccionar Color",
+        "description" : "Color of highlighted text."
+    },
+
+    "SelectionTextColor": {
+        "message": "Seleccionar color de Texto",
+        "description" : "Color of highlighted text."
+    },
+
+    "SelectionBackgroundColor": {
+        "message": "Seleccionar color de Fondo ",
+        "description" : "Background color of highlighted text."
+    },
+    
+    "SelectionTextColorTitle": {
+        "message": " Establece tus propios colores para la selección de texto.",
+        "description" : "Title attribute on Selection Text Color option."
+    },
+
+    "SelectionTextColorDesc": {
+        "message": " Usar selección de color personalizada.",
+        "description" : "Description next to checkbox."
+    },
+
+    "ClipboardTitle": {
+        "message": " El filtrado de texto se guardará en el portapapeles y puede ser pegado en cualquier otra aplicación en tu ordenador.",
+        "description" : "Title for useClipboard Option."
+    },
+
+    "ClipboardDesc": {
+        "message": " Guardar en el portapapeles.",
+        "description" : "Display output in a new tab."
+    },
+
+    "NotificationTitle": {
+        "message": "Mostrar el resultado filtrado en una notificación de escritorio.",
+        "description" : "Use notifications for filtered text."
+    },
+
+    "NotificationDesc": {
+        "message": " Mostrar el resultado en una notificación de escritorio.",
+        "description" : "Use Notifications for output."
+    },
+
+    "TabsTitle": {
+        "message": "Mostrar el resultado filtrado en una nueva pestaña.",
+        "description" : "Show filtered output in a new tab."
+    },
+
+    "TabsDesc": {
+        "message": "Mostrar el resultado en una nueva pestaña.",
+        "description" : "Display output in a new tab."
+    },
+
+
+    "Filters": {
+        "message": "Filtros",
+        "description" : "Text modification functions."
+    },
+
+    "FiltersDesc": {
+        "message": "Elije los filtros que te gustaría ver en el menú contextual.",
+        "description" : "Text underneath Filters heading"
+    },
+
+    "LowerCase": {
+        "message": "Minúsculas",
+        "description" : "filter name"
+    },
+    "LowerCaseDesc": {
+        "message": "A minúsculas todos los caracteres seleccionados.",
+        "description" : "filter description"
+    },
+
+    "UpperCase": {
+        "message": "Mayúsculas",
+        "description" : "filter name"
+    },
+    "UpperCaseDesc": {
+        "message": "A mayúsculas todos los caracteres seleccionados.",
+        "description" : "filter description"
+    },
+
+    "UpperCaseSentence": {
+        "message": "Oraciones a Mayúsculas",
+        "description" : "filter name"
+    },
+
+    "UpperCaseSentenceDesc": {
+        "message": "A mayúscula la primera letra de cada oración.",
+        "description" : "filter description"
+    },
+
+    "UpperCaseWords": {
+        "message": "Palabras a mayúsculas",
+        "description" : "filter name"
+    },
+
+    "UpperCaseWordsDesc": {
+        "message": "A mayúscula la primera letra de cada palabra.",
+        "description" : "filter description"
+    },
+
+    "Length": {
+        "message": "Longitud",
+        "description" : "filter name"
+    },
+    "LengthDesc": {
+        "message": "Retornar el numero de caracteres de la selección.",
+        "description" : "filter description"
+    },
+
+    "Shuffle": {
+        "message": "Mezclar",
+        "description" : "filter name"
+    },
+    "ShuffleDesc": {
+        "message": "Mezclar texto (Usando el algoritmo de Fisher-Yates).",
+        "description" : "filter description"
+    },
+
+    "Reverse": {
+        "message": "Invertir",
+        "description" : "filter name"
+    },
+    "ReverseDesc": {
+        "message": "Invertir el orden de los caracteres en la selección.",
+        "description" : "filter description"
+    },
+
+    "Replace": {
+        "message": "Buscar y Reemplazar",
+        "description" : "filter name"
+    },
+    "ReplaceDesc": {
+        "message": " Buscar y Reemplazar  un valor en la selección.",
+        "description" : "filter description"
+    },
+
+    "WordCount": {
+        "message": "Contar Palabras",
+        "description" : "filter name"
+    },
+    "WordCountDesc": {
+        "message": "Retornar el numero de palabras en la selección.",
+        "description" : "filter description"
+    },
+
+    "WordWrap": {
+        "message": "Ajuste de línea",
+        "description" : "filter name"
+    },
+    "WordWrapDesc": {
+        "message": " Ajustar la selección a una longitud adecuada.",
+        "description" : "filter description"
+    },
+
+    "Base64Encode": {
+        "message": "Encriptación en Base64",
+        "description" : "filter name"
+    },
+    "Base64EncodeDesc": {
+        "message": " Encriptar en Base64 la selección.",
+        "description" : "filter description"
+    },
+
+    "Base64Decode": {
+        "message": "Desencriptar en Base64",
+        "description" : "filter name"
+    },
+    "Base64DecodeDesc": {
+        "message": "Desencriptar en Base64 toda la selección.",
+        "description" : "filter description"
+    },
+
+    "URLEncode": {
+        "message": "Encriptación de URL ",
+        "description" : "filter name"
+    },
+    "URLEncodeDesc": {
+        "message": " Encriptar URL en toda la selección.",
+        "description" : "filter description"
+    },
+
+    "StripTags": {
+        "message": "Remover Etiquetas",
+        "description" : "filter name"
+    },
+    "StripTagsDesc": {
+        "message": " Remover Etiquetas  de HTML en la selección.",
+        "description" : "filter description"
+    },
+
+    "RemoveWhitespace": {
+        "message": "Remover Espacios Blancos",
+        "description" : "filter name"
+    },
+    "RemoveWhitespaceDesc": {
+        "message": " Remover Espacios Blancos  en la selección.",
+        "description" : "filter description"
+    },
+
+    "FormatXML": {
+        "message": "Formateo XML",
+        "description" : "filter name"
+    },
+    "FormatXMLDesc": {
+        "message": "Pretty print XML.",
+        "description" : "filter description"
+    },
+
+    "FormatJSON": {
+        "message": "Formateo JSON",
+        "description" : "filter name"
+    },
+    "FormatJSONDesc": {
+        "message": "Pretty print JSON.",
+        "description" : "filter description"
+    },
+
+    "FormatCSS": {
+        "message": "Formateo CSS",
+        "description" : "filter name"
+    },
+    "FormatCSSDesc": {
+        "message": "Pretty print CSS.",
+        "description" : "filter description"
+    },
+
+    "FormatSQL": {
+        "message": "Formateo SQL",
+        "description" : "filter name"
+    },
+    "FormatSQLDesc": {
+        "message": "Pretty print SQL.",
+        "description" : "filter description"
+    },
+
+    "MD5Desc": {
+        "message": "Retornar el  hash MD5 de la selección.",
+        "description" : "filter description"
+    },
+
+    "SHA1Desc": {
+        "message": "Retornar el hash SHA1 de la selección.",
+        "description" : "filter description"
+    },
+
+    "SHA224Desc": {
+        "message": "Retornar el hash SHA224 de la selección.",
+        "description" : "filter description"
+    },
+
+    "SHA256Desc": {
+        "message": "Retornar el hash SHA256 de la selección.",
+        "description" : "filter description"
+    },
+
+    "SHA384Desc": {
+        "message": "Retornar el hash SHA384 de la selección.",
+        "description" : "filter description"
+    },
+
+    "SHA512Desc": {
+        "message": "Retornar el hash SHA512 de la selección.",
+        "description" : "filter description"
+    },
+
+    "PigLatinDesc": {
+        "message": "Traducir texto al latín de los cerdos.",
+        "description" : "filter description"
+    }
+}
