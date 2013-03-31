@@ -73,8 +73,8 @@
 
         filters: {
             LowerCase: {
-                name: i18n('Lowercase'),
-                desc: i18n('LowercaseDesc'),
+                name: i18n('LowerCase'),
+                desc: i18n('LowerCaseDesc'),
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         txt.selectionText.toLowerCase(),
@@ -83,13 +83,42 @@
                 }
             },
             UpperCase: {
-                name: i18n('Uppercase'),
-                desc: i18n('UppercaseDesc'),
+                name: i18n('UpperCase'),
+                desc: i18n('UpperCaseDesc'),
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         txt.selectionText.toUpperCase(),
                         'UpperCase',
                         txt.pageUrl);
+                }
+            },
+            UpperCaseSentence: {
+                name: i18n('UpperCaseSentence'),
+                desc: i18n('UpperCaseSentenceDesc'),
+                exec: function (txt) {
+                    var s = txt.selectionText.split(/([\.\!\?])/), i, c;
+                    if (s.length) {
+                        for (i in s) {
+                            // TODO Need to find first char!
+                            s[i] = s[i].charAt(0).toUpperCase() +
+                                s[i].slice(1);
+                        }
+                        s = s.join('');
+                    } else  if (txt.selectionText.length) {
+                        // handle missing punctuation.
+                        s = txt.selectionText.charAt(0).toUpperCase() +
+                                s.slice(1);
+                    }
+                    return exsel.returnSelection(txt.selectionText,
+                        s,
+                        'UpperCase',
+                        txt.pageUrl);
+                }
+            },
+            UpperCaseWords: {
+                name: i18n('UpperCaseWords'),
+                desc: i18n('UpperCaseWordsDesc'),
+                exec: function (txt) {
                 }
             },
             Length: {
