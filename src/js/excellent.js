@@ -98,14 +98,14 @@
                 exec: function (txt) {
                     var s = txt.selectionText;
 
-                    s.replace(/\w\S*/g, function (txt) {
+                    s = s.replace(/\w\S*/g, function (txt) {
                         return txt.charAt(0).toUpperCase() + txt.substr(1);
                     });
 
                     return exsel.returnSelection(txt.selectionText,
-                        txt,
+                        s,
                         'UpperCaseWords',
-                        txt.pageUrl);
+                        s.pageUrl);
                 }
             },
             Length: {
