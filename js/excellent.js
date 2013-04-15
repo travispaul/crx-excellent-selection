@@ -73,8 +73,8 @@
 
         filters: {
             LowerCase: {
-                name: i18n('Lowercase'),
-                desc: i18n('LowercaseDesc'),
+                name: i18n('LowerCase'),
+                desc: i18n('LowerCaseDesc'),
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         txt.selectionText.toLowerCase(),
@@ -83,12 +83,25 @@
                 }
             },
             UpperCase: {
-                name: i18n('Uppercase'),
-                desc: i18n('UppercaseDesc'),
+                name: i18n('UpperCase'),
+                desc: i18n('UpperCaseDesc'),
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
                         txt.selectionText.toUpperCase(),
                         'UpperCase',
+                        txt.pageUrl);
+                }
+            },
+            UpperCaseWords: {
+                name: i18n('UpperCaseWords'),
+                desc: i18n('UpperCaseWordsDesc'),
+                exec: function (txt) {
+                    var txt = txt.selectionText.replace(/\w\S*/g, function (txt) { 
+                        return txt.charAt(0).toUpperCase() + txt.substr(1);
+                    });
+                    return exsel.returnSelection(txt.selectionText,
+                        txt,
+                        'UpperCaseWords',
                         txt.pageUrl);
                 }
             },

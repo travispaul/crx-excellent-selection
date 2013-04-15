@@ -5,6 +5,7 @@ Install at the [Chrome Web Store][1]
 The following commands are added to the right-click context menu of selected text.
 * Lowercase
 * Uppercase
+* Uppercase Words
 * Length
 * Shuffle
 * Reverse

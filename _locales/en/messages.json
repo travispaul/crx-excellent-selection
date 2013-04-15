@@ -95,21 +95,41 @@
         "description" : "Text underneath Filters heading"
     },
 
-    "Lowercase": {
+    "LowerCase": {
         "message": "Lowercase",
         "description" : "filter name"
     },
-    "LowercaseDesc": {
+    "LowerCaseDesc": {
         "message": "Lowercase all characters in selection.",
         "description" : "filter description"
     },
 
-    "Uppercase": {
+    "UpperCase": {
         "message": "Uppercase",
         "description" : "filter name"
     },
-    "UppercaseDesc": {
+    "UpperCaseDesc": {
         "message": "Uppercase all characters in selection.",
+        "description" : "filter description"
+    },
+
+    "UpperCaseSentence": {
+        "message": "Uppercase Sentences",
+        "description" : "filter name"
+    },
+
+    "UpperCaseSentenceDesc": {
+        "message": "Uppercase the first letter of each sentence.",
+        "description" : "filter description"
+    },
+
+    "UpperCaseWords": {
+        "message": "Uppercase Words",
+        "description" : "filter name"
+    },
+
+    "UpperCaseWordsDesc": {
+        "message": "Uppercase the first letter of each each word.",
         "description" : "filter description"
     },
 
