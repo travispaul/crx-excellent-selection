@@ -96,9 +96,12 @@
                 name: i18n('UpperCaseWords'),
                 desc: i18n('UpperCaseWordsDesc'),
                 exec: function (txt) {
-                    var txt = txt.selectionText.replace(/\w\S*/g, function (txt) { 
+                    var s = txt.selectionText;
+
+                    s.replace(/\w\S*/g, function (txt) {
                         return txt.charAt(0).toUpperCase() + txt.substr(1);
                     });
+
                     return exsel.returnSelection(txt.selectionText,
                         txt,
                         'UpperCaseWords',
