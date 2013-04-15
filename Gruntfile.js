@@ -34,7 +34,7 @@ module.exports = function(grunt) {
                     }
                 ]
             }
-        }
+        },
         uglify: {
             main: {
                 options: {
