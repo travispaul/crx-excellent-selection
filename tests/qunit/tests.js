@@ -176,4 +176,20 @@ $(function(){
         equal(exsel.filters.PigLatin.exec({ selectionText: '' }), '');
     });
 
+    test("Uppercase Words", 6, function() {
+        var
+            s1 = "here is a sentence.",
+            s2 = "Here Is A Sentence Again."
+            s3 = "hERE iS aNOTHER oNE",
+            s4 = "AND ANOTHER ONE, WHAT ABOUT \n LINE \n BREAKS TOO!",
+            s5 = "I expect the fUnCtIoN to keep my FORMATTING.";
+
+        equal(exsel.filters.UpperCaseWords.exec({ selectionText: s1 }), 'Here Is A Sentence.');
+        equal(exsel.filters.UpperCaseWords.exec({ selectionText: s2 }), 'Here Is A Sentence Again.');
+        equal(exsel.filters.UpperCaseWords.exec({ selectionText: s3 }), 'HERE IS ANOTHER ONE');
+        equal(exsel.filters.UpperCaseWords.exec({ selectionText: s4 }), 'AND ANOTHER ONE, WHAT ABOUT \n LINE \n BREAKS TOO!');
+        equal(exsel.filters.UpperCaseWords.exec({ selectionText: s5 }), 'I Expect The FUnCtIoN To Keep My FORMATTING.');
+        equal(exsel.filters.UpperCaseWords.exec({ selectionText: '' }), '');
+    });
+
 });

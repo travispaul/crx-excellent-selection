@@ -92,33 +92,17 @@
                         txt.pageUrl);
                 }
             },
-            UpperCaseSentence: {
-                name: i18n('UpperCaseSentence'),
-                desc: i18n('UpperCaseSentenceDesc'),
-                exec: function (txt) {
-                    var s = txt.selectionText.split(/([\.\!\?])/), i, c;
-                    if (s.length) {
-                        for (i in s) {
-                            // TODO Need to find first char!
-                            s[i] = s[i].charAt(0).toUpperCase() +
-                                s[i].slice(1);
-                        }
-                        s = s.join('');
-                    } else  if (txt.selectionText.length) {
-                        // handle missing punctuation.
-                        s = txt.selectionText.charAt(0).toUpperCase() +
-                                s.slice(1);
-                    }
-                    return exsel.returnSelection(txt.selectionText,
-                        s,
-                        'UpperCase',
-                        txt.pageUrl);
-                }
-            },
             UpperCaseWords: {
                 name: i18n('UpperCaseWords'),
                 desc: i18n('UpperCaseWordsDesc'),
                 exec: function (txt) {
+                    var txt = txt.selectionText.replace(/\w\S*/g, function (txt) { 
+                        return txt.charAt(0).toUpperCase() + txt.substr(1);
+                    });
+                    return exsel.returnSelection(txt.selectionText,
+                        txt,
+                        'UpperCaseWords',
+                        txt.pageUrl);
                 }
             },
             Length: {
