@@ -21,7 +21,7 @@ module.exports = function(grunt) {
         },
         clean: {
             build: ["build"],
-            tests: ["build/tests"]
+            tests: ["build/tests", "build/img/*.xcf", "build/img/screenshots"]
         },
         copy: {
             main: {
