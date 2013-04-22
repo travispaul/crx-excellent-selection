@@ -27,5 +27,6 @@ The following commands are added to the right-click context menu of selected tex
 * SHA-256
 * SHA-384
 * SHA-512
+* ROT13
 
 [1]: https://chrome.google.com/webstore/detail/excellent-selection/enhkggpdbpffnbhbaimnpdjbmenlhmkm

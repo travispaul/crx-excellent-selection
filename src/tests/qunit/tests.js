@@ -192,4 +192,18 @@ $(function(){
         equal(exsel.filters.UpperCaseWords.exec({ selectionText: '' }), '');
     });
 
+
+    test("ROT-13", 3, function() {
+        var
+            before = "A quick movement of the enemy will jeopardize six gunboats",
+            after = "N dhvpx zbirzrag bs gur rarzl jvyy wrbcneqvmr fvk thaobngf",
+            output,
+            check = "abcxyz 0123456789 \n ~`!@#$%^&*()_+{}|[]\\:;'\",<.>/?";
+
+        equal(exsel.filters.ROT13.exec({ selectionText: before }), after);
+        output = exsel.filters.ROT13.exec({ selectionText: check })
+        equal(exsel.filters.ROT13.exec({ selectionText: output }), check);
+        equal(exsel.filters.ROT13.exec({ selectionText: '' }), '');
+    });
+
 });
