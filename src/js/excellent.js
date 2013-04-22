@@ -1,4 +1,4 @@
-(function (window, undefined) {
+ (function (window, undefined) {
 
     'use strict';
 
@@ -105,7 +105,7 @@
                     return exsel.returnSelection(txt.selectionText,
                         s,
                         'UpperCaseWords',
-                        s.pageUrl);
+                        txt.pageUrl);
                 }
             },
             Length: {
@@ -333,6 +333,23 @@
                     return exsel.returnSelection(txt.selectionText,
                         CryptoJS.SHA512(txt.selectionText).toString(),
                         'SHA512', txt.pageUrl);
+                }
+            },
+            ROT13: {
+                name: 'ROT13',
+                desc: i18n('ROT13Desc'),
+                exec: function (txt) {
+                    var str = txt.selectionText;
+
+                    str = str.replace(/[a-z]/gi, function (s) {
+                        return String.fromCharCode(s.charCodeAt(0) +
+                                (s.toLowerCase() < 'n' ? 13 : -13));
+                    });
+
+                    return exsel.returnSelection(txt.selectionText,
+                        str,
+                        'ROT13',
+                        txt.pageUrl);
                 }
             },
             PigLatin: {

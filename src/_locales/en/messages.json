@@ -267,37 +267,34 @@
         "message": "Pretty print SQL.",
         "description" : "filter description"
     },
-
     "MD5Desc": {
         "message": "Return MD5 hash of selection.",
         "description" : "filter description"
     },
-
     "SHA1Desc": {
         "message": "Return SHA1 hash of selection.",
         "description" : "filter description"
     },
-
     "SHA224Desc": {
         "message": "Return SHA224 hash of selection.",
         "description" : "filter description"
     },
-
     "SHA256Desc": {
         "message": "Return SHA256 hash of selection.",
         "description" : "filter description"
     },
-
     "SHA384Desc": {
         "message": "Return SHA384 hash of selection.",
         "description" : "filter description"
     },
-
     "SHA512Desc": {
         "message": "Return SHA512 hash of selection.",
         "description" : "filter description"
     },
-
+    "ROT13Desc": {
+        "message": "Return ROT-13 of selection.",
+        "description": "ROT-13 description"
+    },
     "PigLatinDesc": {
         "message": "Translates text to pig latin.",
         "description" : "filter description"

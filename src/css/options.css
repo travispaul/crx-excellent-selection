@@ -26,6 +26,7 @@ ul{
 #custom-text{
     overflow: hidden;
 }
+
 pre{
     font-family: courier, serif;
     padding:12px;
@@ -87,7 +88,7 @@ h2{
 }
 .content {
     position: absolute;
-    top: 28px;
+    top: 26px;
     left: 0;
     background: white;
     right: 0;
