@@ -8,9 +8,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        manifest:  JSON.parse(fs.readFileSync('src/manifest.json', 'utf8')),
         mkdir: {
             all: {
                 options: {
@@ -39,7 +41,7 @@ module.exports = function(grunt) {
             main: {
                 options: {
                     report: 'min',
-                    banner: "// <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today('yyyy-mm-dd') %> \n"
+                    banner: "//<%= pkg.name %> v<%= manifest.version %>\n"
                 },
                 files: [
                     {
@@ -59,7 +61,7 @@ module.exports = function(grunt) {
                 options: {
                     report: 'min',
                     keepSpecialComments: 1,
-                    banner: "/* <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today('yyyy-mm-dd') %> */"
+                    banner: "/*<%= pkg.name %> v<%= manifest.version %>*/"
                 },
                 files: [
                     {
