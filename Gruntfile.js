@@ -76,6 +76,25 @@ module.exports = function(grunt) {
                     }
                 ]
             }
+        },
+        htmlmin: {
+            main: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'build/',
+                        src: [
+                            
+                            '*.html',
+                        ],
+                        dest: 'build/'
+                    }
+                ]
+            }
         }
     });
 
@@ -85,7 +104,8 @@ module.exports = function(grunt) {
         'copy',
         'clean:tests',
         'uglify',
-        'cssmin'
+        'cssmin',
+        'htmlmin'
     ]);
 
 };
