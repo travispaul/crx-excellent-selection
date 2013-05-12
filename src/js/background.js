@@ -4,7 +4,12 @@
 
     exsel.createCtxMenus();
 
+    chrome.contextMenus.onClicked.addListener(function (data) {
+        exsel.filters[data.menuItemId].exec(data);
+    });
+
     function msgHandler(request, sender, sendResponse) {
+
         if (!request.get) {
 
             var

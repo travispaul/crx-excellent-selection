@@ -381,9 +381,9 @@
                 if (visibleFilters.hasOwnProperty(filter) &&
                         exsel.filters.hasOwnProperty(visibleFilters[filter])) {
                     chrome.contextMenus.create({
+                        id: visibleFilters[filter],
                         title: exsel.filters[visibleFilters[filter]].name,
-                        contexts: ['selection'],
-                        onclick: exsel.filters[visibleFilters[filter]].exec
+                        contexts: ['selection']
                     });
                 }
             }

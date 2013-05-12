@@ -1,6 +1,6 @@
 {
     "name": "__MSG_extName__",
-    "version": "1.4.1",
+    "version": "1.5.0",
     "manifest_version": 2,
     "description": "__MSG_extDescription__",
     "default_locale": "en",
@@ -10,7 +10,8 @@
               "128": "img/128.png" },
     "options_page": "options.html",
     "background": {
-        "page": "background.html"
+        "page": "background.html",
+        "persistent": false
     },
     "permissions" : [
         "clipboardWrite",
