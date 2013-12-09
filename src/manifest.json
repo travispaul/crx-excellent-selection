@@ -16,7 +16,6 @@
     "permissions" : [
         "clipboardWrite",
         "contextMenus",
-        "notifications",
         "unlimitedStorage",
         "http://*/*",
         "https://*/*"

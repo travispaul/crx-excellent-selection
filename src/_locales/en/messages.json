@@ -65,12 +65,12 @@
     },
 
     "NotificationTitle": {
-        "message": "Show filtered output in a desktop notification.",
+        "message": "Show filtered output in a popup window.",
         "description" : "Use notifications for filtered text."
     },
 
     "NotificationDesc": {
-        "message": "Display output in a desktop notification.",
+        "message": "Display output in a popup window.",
         "description" : "Use Notifications for output."
     },
 
