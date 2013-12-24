@@ -6,7 +6,6 @@ $(function () {
         scripts = [
             '../../js/excellent.js',
             '../../js/background.js',
-            '../../js/notification.js',
             '../../js/tab.js',
             '../../js/options.js',
             '../../js/selection.js',

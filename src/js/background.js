@@ -15,7 +15,7 @@
             var
                 output = exsel.getOutputMethod(),
                 popupOpt = 'dialog=yes,location=no,top=0,left=0,height=150,' +
-                    'width=300,menubar=no,toolbar=no,status=no,resizable=yes',
+                'width=300,menubar=no,toolbar=no,status=no,resizable=yes',
                 outputTab = 'tab.html',
                 clipboard = document.getElementById('clipboard');
 
