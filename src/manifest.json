@@ -16,12 +16,11 @@
     "permissions" : [
         "clipboardWrite",
         "contextMenus",
-        "unlimitedStorage",
-        "<all_urls>"
+        "unlimitedStorage"
     ],
     "offline_enabled": true,
     "content_scripts": [{
-        "matches": ["http://*/*", "https://*/*"],
+        "matches": ["<all_urls>"],
         "js": ["js/zepto.min.js", "js/selection.js"]
     }]
 }
