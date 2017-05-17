@@ -9,9 +9,6 @@
 
     var exsel = {
 
-        // Set to false for unit tests
-        runAsExtension : true,
-
         // Defaults for options that persists in local storage
         options: {
             selectionColor: null,
@@ -335,9 +332,7 @@
                 name: 'ROT13',
                 desc: i18n('ROT13Desc'),
                 exec: function (txt) {
-                    var str = txt.selectionText;
-
-                    str = str.replace(/[a-z]/gi, function (s) {
+                    var str = txt.selectionText.replace(/[a-z]/gi, function (s) {
                         return String.fromCharCode(s.charCodeAt(0) +
                                 (s.toLowerCase() < 'n' ? 13 : -13));
                     });
