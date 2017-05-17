@@ -16,9 +16,9 @@
         options: {
             selectionColor: null,
             selectionBackground: null,
-            useNotifications: 'on',
-            useTabs: 'off',
-            useClipboard: 'off',
+            useNotifications: 'off',
+            useTabs: 'on',
+            useClipboard: 'on',
             visibleFilters: ['LowerCase', 'UpperCase', 'Length', 'Shuffle',
                 'Reverse', 'Replace', 'WordCount', 'WordWrap', 'Base64Encode',
                 'Base64Decode', 'UrlEncode', 'StripTags', 'RemoveWhitespace',
@@ -58,17 +58,13 @@
 
         // The selection has been filtered and is now processed
         returnSelection: function (original, modified, filter, url) {
-            var filterName = i18n(filter) || filter;
-            if (exsel.runAsExtension) {
-                chrome.extension.sendMessage({
-                    original: original,
-                    modified: modified.toString(),
-                    filter: filterName,
-                    filterId: filter,
-                    url: url
-                });
-            }
-            return modified;
+            return {
+                original: original,
+                modified: modified.toString(),
+                filter: i18n(filter) || filter,
+                filterId: filter,
+                url: url
+            };
         },
 
         filters: {

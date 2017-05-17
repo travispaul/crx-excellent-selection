@@ -84,7 +84,6 @@
         "description" : "Display output in a new tab."
     },
 
-
     "Filters": {
         "message": "Filters",
         "description" : "Text modification functions."
