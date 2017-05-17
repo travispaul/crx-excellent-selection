@@ -1,5 +1,3 @@
-var fs = require('fs');
-
 module.exports = function(grunt) {
 
     // NPM tasks
@@ -12,7 +10,7 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        manifest:  JSON.parse(fs.readFileSync('src/manifest.json', 'utf8')),
+        manifest: grunt.file.readJSON('src/manifest.json'),
         mkdir: {
             all: {
                 options: {
