@@ -9,7 +9,6 @@ chrome.extension.sendMessage({ get: 'getSelectionStyle' }, function (r) {
     if (r.get.background) {
         background = 'background:' + r.get.background + ';';
     }
-    console.log(background, color);
     document.head.insertAdjacentHTML('beforeend', '<style>::selection {'
         + background + color + '}</style>');
 });
