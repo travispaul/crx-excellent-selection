@@ -1,9 +1,10 @@
+/* globals chrome, vkbeautify, CryptoJS */
 (function (window, undefined) {
 
     'use strict';
 
     function i18n(msg) {
-        return (typeof chrome.i18n === 'object') ?
+        return (window.chrome && typeof window.chrome.i18n === 'object') ?
                 chrome.i18n.getMessage(msg) : msg;
     }
 
@@ -33,10 +34,10 @@
         // Example result: { color: '#000000', background: '#eeeeee' }
         getSelectionStyle: function () {
             return {
-                color: localStorage.getItem('selectionColor')
-                    || exsel.options.selectionColor,
-                background: localStorage.getItem('selectionBackground')
-                    || exsel.options.selectionBackground
+                color: localStorage.getItem('selectionColor') ||
+                    exsel.options.selectionColor,
+                background: localStorage.getItem('selectionBackground') ||
+                    exsel.options.selectionBackground
             };
         },
 
@@ -44,12 +45,12 @@
         // Example result: { useNotifications: true, useTabs: false }
         getOutputMethod: function () {
             return {
-                useNotifications: localStorage.getItem('useNotifications')
-                    || exsel.options.useNotifications,
-                useTabs: localStorage.getItem('useTabs')
-                    || exsel.options.useTabs,
-                useClipboard: localStorage.getItem('useClipboard')
-                    || exsel.options.useClipboard
+                useNotifications: localStorage.getItem('useNotifications') ||
+                    exsel.options.useNotifications,
+                useTabs: localStorage.getItem('useTabs') ||
+                    exsel.options.useTabs,
+                useClipboard: localStorage.getItem('useClipboard') ||
+                    exsel.options.useClipboard
             };
         },
 
@@ -144,9 +145,9 @@
                 exec: function (txt) {
                     var
                         find = (txt.hasOwnProperty('search')) ?
-                                txt.search : prompt('Search:'),
+                                txt.search : window.prompt('Search:'),
                         re = (txt.hasOwnProperty('replace')) ?
-                                txt.replace : prompt('Replace'),
+                                txt.replace : window.prompt('Replace'),
                         exp = new RegExp(find, 'g');
 
 
@@ -189,7 +190,7 @@
 
                     return exsel.returnSelection(txt.selectionText,
                         wordwrap(txt.selectionText,
-                            prompt('Line Width:'), "\n"), 'WordWrap',
+                            window.prompt('Line Width:'), "\n"), 'WordWrap',
                             txt.pageUrl);
                 }
             },
@@ -216,7 +217,7 @@
                 desc: i18n('URLEncodeDesc'),
                 exec: function (txt) {
                     return exsel.returnSelection(txt.selectionText,
-                        escape(txt.selectionText), 'URLEncode',
+                        window.escape(txt.selectionText), 'URLEncode',
                         txt.pageUrl);
                 }
             },

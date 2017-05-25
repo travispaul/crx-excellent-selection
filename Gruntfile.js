@@ -1,12 +1,6 @@
 module.exports = function(grunt) {
 
-    // NPM tasks
-    grunt.loadNpmTasks('grunt-mkdir');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    require('load-grunt-tasks')(grunt);
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -93,6 +87,21 @@ module.exports = function(grunt) {
                     }
                 ]
             }
+        },
+        qunit: {
+            all: ['src/test/index.html']
+        },
+        jshint: {
+            options: {
+                jshintrc: '.jshintrc'
+            },
+            default: ['src/js/excellent.js', 'src/test/test.js'],
+            dev: {
+                options: {
+                    jshintrc: '.jshintrc.node'
+                },
+                src: ['Gruntfile.js']
+            }
         }
     });
 
@@ -105,5 +114,4 @@ module.exports = function(grunt) {
         'cssmin',
         'htmlmin'
     ]);
-
 };
