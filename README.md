@@ -1,4 +1,4 @@
-Excellent Selection - Chrome Extension
+Excellent Selection [![Build Status](https://travis-ci.org/travispaul/crx-excellent-selection.svg?branch=master)](https://travis-ci.org/travispaul/crx-excellent-selection)
 ======================================
 Install at the [Chrome Web Store][1]
 
