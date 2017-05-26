@@ -95,7 +95,12 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: '.jshintrc'
             },
-            default: ['src/js/excellent.js', 'src/test/test.js'],
+            default: [
+                'src/js/excellent.js',
+                'src/test/test.js',
+                'src/js/background.js',
+                'src/js/options.js',
+                'src/js/install.js'],
             dev: {
                 options: {
                     jshintrc: '.jshintrc.node'
@@ -105,13 +110,31 @@ module.exports = function(grunt) {
         }
     });
 
+    grunt.registerTask('release', 'Generate release notes', function() {
+        var
+            exec = require('child_process').exec,
+            fs = require('fs'),
+            done = this.async();
+        exec('git log  --pretty=format:"<li> %ad (%h): %s</li>" --date=short', function (err, stdout) {
+            fs.writeFile('build/release.html', '<ul>' + stdout + '</ul>', {flag: fs.O_TRUNC}, function (err) {
+            if (err) {
+                throw err;
+            }
+            done();
+            });
+        });
+    });
+
     grunt.registerTask('default', [
+        'qunit',
+        'jshint',
         'clean:build',
         'mkdir',
         'copy',
         'clean:tests',
         'uglify',
         'cssmin',
+        'release',
         'htmlmin'
     ]);
 };

@@ -24,6 +24,11 @@
         "description" : "Tab title for custom text."
     },
 
+    "ThanksForInstalling": {
+        "message": "Gracias por instalar!",
+        "description" : "Post installation page"
+    },
+
     "Text": {
         "message": "Texto",
         "description" : "Tab title for text."
@@ -72,6 +77,21 @@
     "NotificationDesc": {
         "message": " Mostrar el resultado en una notificación de escritorio.",
         "description" : "Use Notifications for output."
+    },
+
+    "ShowUpdatePageTitle" : {
+        "message": "Mostrar notas de la versión",
+        "description" : "Title displayed when hovering over the 'Show Update Page' option."
+    },
+
+    "ShowUpdatePageDesc": {
+        "message": "Mostrar notas de la versión",
+        "description" : "Text shown next to the 'Show Update Page' option."
+    },
+
+    "ReleaseNotes": {
+        "message": "Notas de lanzamiento",
+        "description" : "Header shown above git commit messages."
     },
 
     "TabsTitle": {

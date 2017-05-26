@@ -1,3 +1,9 @@
+html{
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 14px;
+    color:#555;
+}
+
 #selectionOptions {
     display:none;
 }
@@ -154,4 +160,8 @@ input[type='checkbox']:checked::before {
   display: block;
   height: 100%;
   width: 100%;
+}
+
+.release ul {
+  font-family: monospace;
 }

@@ -1,6 +1,4 @@
-
-<!-- saved from url=(0056)https://raw.github.com/marijnh/CodeMirror/master/LICENSE -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/page_context.js"></script><style>::selection {}</style></head><body screen_capture_injected="true"><pre style="word-wrap: break-word; white-space: pre-wrap;">Copyright (C) 2012 by Marijn Haverbeke &lt;marijnh@gmail.com&gt;
+Copyright (C) 2012 by Marijn Haverbeke <marijnh@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -23,4 +21,3 @@ THE SOFTWARE.
 Please note that some subdirectories of the CodeMirror distribution
 include their own LICENSE files, and are released under different
 licences.
-</pre></body><style type="text/css"></style></html>

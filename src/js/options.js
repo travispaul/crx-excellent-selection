@@ -1,3 +1,4 @@
+/* globals exsel, $, i18n */
 $(function () {
 
     'use strict';
@@ -6,8 +7,6 @@ $(function () {
         $localSetting = $('.localSetting'),
         $filterList = $('#filterList'),
         $filters,
-        currentFilter,
-        checked = '',
         selectionStyle,
         visibleFilters = exsel.getFilters(),
         $selectionCheck = $('#selectionCheck'),
@@ -32,7 +31,6 @@ $(function () {
         if (background || color) {
             $selectionPreview.text('::selection {' + background + color + '}');
         }
-
     }
 
     updateSelectionPreview();
@@ -48,10 +46,9 @@ $(function () {
         updateSelectionPreview();
     });
 
-
     $.each(exsel.filters, function (currentFilter) {
 
-        checked = '';
+        var checked = '';
         if ($.inArray(currentFilter, visibleFilters) !== -1) {
             checked = 'checked';
         }
@@ -118,11 +115,12 @@ $(function () {
 
     $.each(outputMethods, function (i) {
         if (outputMethods[i] === 'on') {
-            $('#' + i).attr('checked', true);
+            document.getElementById(i).checked = true;
         }
     });
 
     $outputMethod.change(function () {
         localStorage.setItem(this.id, this.checked ? 'on' : 'off');
     });
+
 });

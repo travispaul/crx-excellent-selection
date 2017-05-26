@@ -1,3 +1,4 @@
+/* globals chrome, exsel */
 (function (window, undefined) {
 
     'use strict';
@@ -34,5 +35,12 @@
     }
 
     chrome.runtime.onMessage.addListener(msgHandler);
+
+    chrome.runtime.onInstalled.addListener(function () {
+        var output = exsel.getOutputMethod();
+        if (output.showUpdatePage === 'on') {
+            window.open(chrome.runtime.getURL('install.html'));
+        }
+    });
 
 }(window));

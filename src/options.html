@@ -3,8 +3,7 @@
     <head>
         <meta charset="utf-8"/>
         <title data-i18n-text="Options"></title>
-        <link rel="stylesheet" href="css/global.css"/>
-        <link rel="stylesheet" href="css/options.css"/>
+        <link rel="stylesheet" href="css/extension.css"/>
         <style id="selectionPreview"></style>
     </head>
     <body>
@@ -13,7 +12,7 @@
             <ul>
                 <li>
                     <input type="checkbox" id="useClipboard" class="outputMethod"/>
-                    <label for="useClipboard" data-i18n-title="ClipbaordTitle" data-i18n-text="ClipboardDesc"></label>
+                    <label for="useClipboard" data-i18n-title="ClipboardTitle" data-i18n-text="ClipboardDesc"></label>
                 </li>
                 <li>
                     <input type="checkbox" id="useNotifications" class="outputMethod"/>
@@ -36,6 +35,10 @@
                             <input id="selectionBackground" type="color" class="localSetting"/>
                         </li>
                     </ul>
+                </li>
+                <li>
+                    <input type="checkbox" id="showUpdatePage" class="outputMethod"/>
+                    <label for="showUpdatePage" data-i18n-title="ShowUpdatePageTitle" data-i18n-text="ShowUpdatePageDesc"></label>
                 </li>
             </ul>
             <h2 data-i18n-text="Filters"></h2>

@@ -4,8 +4,8 @@
     'use strict';
 
     function i18n(msg) {
-        return (window.chrome && typeof window.chrome.i18n === 'object') ?
-                chrome.i18n.getMessage(msg) : msg;
+        return ((window.chrome && typeof window.chrome.i18n === 'object') ?
+                chrome.i18n.getMessage(msg) : msg) || msg;
     }
 
     var exsel = {
@@ -17,6 +17,7 @@
             useNotifications: 'off',
             useTabs: 'on',
             useClipboard: 'on',
+            showUpdatePage: 'on',
             visibleFilters: ['LowerCase', 'UpperCase', 'Length', 'Shuffle',
                 'Reverse', 'Replace', 'WordCount', 'WordWrap', 'Base64Encode',
                 'Base64Decode', 'UrlEncode', 'StripTags', 'RemoveWhitespace',
@@ -50,7 +51,9 @@
                 useTabs: localStorage.getItem('useTabs') ||
                     exsel.options.useTabs,
                 useClipboard: localStorage.getItem('useClipboard') ||
-                    exsel.options.useClipboard
+                    exsel.options.useClipboard,
+                showUpdatePage: localStorage.getItem('showUpdatePage') ||
+                    exsel.options.showUpdatePage
             };
         },
 
