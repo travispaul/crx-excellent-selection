@@ -5,5 +5,5 @@ node_js:
   - "4"
 install:
   - npm install
-  - npm install grunt
+  - npm install grunt-cli
 script: ./node_modules/.bin/grunt
