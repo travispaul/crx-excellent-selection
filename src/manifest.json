@@ -15,8 +15,7 @@
     },
     "permissions" : [
         "clipboardWrite",
-        "contextMenus",
-        "unlimitedStorage"
+        "contextMenus"
     ],
     "offline_enabled": true,
     "content_scripts": [{
